@@ -1,0 +1,7 @@
+---
+title: DIY power supply from AliExpress
+---
+
+Just finished soldering and assembling a PSU unit.
+
+[[/images/diy-psu-top.jpg]]
