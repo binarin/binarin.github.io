@@ -1,4 +1,4 @@
-pre, code { background-color: #f8f8f8; }
+pre, code { background-color: #f8f8f8; font-family: monospace; }
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
