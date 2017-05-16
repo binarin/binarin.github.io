@@ -3,7 +3,11 @@ title: DIY power supply from AliExpress
 ---
 
 Just finished soldering and assembling a [[https://www.aliexpress.com/item/DIY-Kit-LM317-Adjustable-Regulated-Voltage-Step-down-Power-Supply-Suite-Module-Free-Shipping/32563951591.html?spm=2114.13010608.0.0.fAKrUW][DIY power supply]] purchased
-from AliExpress. I don't think I'm going to use it for powering
+from AliExpress.
+
+#+HTML: <!--more-->
+
+I don't think I'm going to use it for powering
 anything important (even during prototyping), because very small
 changes applied to the potentiometer result in a big changes to
 voltage. And I'm a bit wary that I can burn out something just by

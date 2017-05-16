@@ -16,6 +16,9 @@ title: RabbitMQ net-split messages explanation
    Here I'm trying to document all the reasons that I've seen and how
    you can reproduce them.
 
+#+HTML: <!--more-->
+
+
 * ~connection_closed~
 
     This happens any time when a connection is closed using "normal"

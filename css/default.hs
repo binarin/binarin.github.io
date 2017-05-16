@@ -38,6 +38,25 @@ mainFooter = do
         samePadding $ px 20
         background headerBackground
 
+postList = do
+    ".posts" ? do
+      listStyleType none
+    ".posts__item-title" ? do
+      fontSize $ px 18
+      marginBottom $ px 0
+    ".posts__item-date" ? do
+      fontSize $ px 14
+      fontColor $ rgb 100 100 100
+      fontStyle italic
+      marginTop $ px 0
+      marginBottom $ px 0
+    ".posts__item-read-more" ? do
+      fontSize $ px 14
+      color orange
+      fontWeight bold
+      display block
+      textAlign $ alignSide sideRight
+
 post = do
     ".post-image" ? do
         width $ pct 100
@@ -50,7 +69,10 @@ main = putCss $ do
      body ? do
        fontFamily [] [sansSerif]
        fontSize $ px 18
+     a ? do
+       color blue
      mainHeader
      mainFooter
      post
+     postList
      bigBreakpoint

@@ -9,6 +9,8 @@ most things there are still relevant - except the build instructions,
 as there was a complete revamp of build system in RabbitMQ. And I'm
 going to fill that gap.
 
+#+HTML: <!--more-->
+
  RabbitMQ plugin development guide suggests that the easiest way to
  start a new plugin is to copy the simplest existing plugin
  ~rabbitmq_metronome~. I've re-implemented it in Elixir at
