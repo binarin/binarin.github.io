@@ -1,4 +1,4 @@
-* {
+body {
     font-family: sans-serif;
     font-size: 18px;
 }
@@ -38,5 +38,6 @@
 }
 
 .post-image {
-    width: 50%;
+    width: 100%;
+    max-width: 480px;
 }
