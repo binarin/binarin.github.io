@@ -23,12 +23,13 @@
 
     <section class="content">
       <h1>RabbitMQ plugins in Elixir</h1>
-      <div class="info">
+
+<div>
     Posted on April 19, 2017
-    
 </div>
 
 <p>As RabbitMQ is gradually adopting Elixir (i.e. for <a href="https://github.com/rabbitmq/rabbitmq-cli">the next generation of its CLI tools</a>), it’s natural that one would also want to use Elixir for writing plugins. There is a <a href="https://www.rabbitmq.com/blog/2013/06/03/using-elixir-to-write-rabbitmq-plugins/">blog post</a> from 2013 on that topic and most things there are still relevant - except the build instructions, as there was a complete revamp of build system in RabbitMQ. And I’m going to fill that gap.</p>
+<!--more-->
 <p>RabbitMQ plugin development guide suggests that the easiest way to start a new plugin is to copy the simplest existing plugin <code>rabbitmq_metronome</code>. I’ve re-implemented it in Elixir at <a href="https://github.com/binarin/rabbitmq_metronome_elixir" class="uri">https://github.com/binarin/rabbitmq_metronome_elixir</a>. You can just fork it and start hacking (note that it only works with what is going to be a <code>3.7.0</code> release of rabbit). Or read further down about some details that make this possible.</p>
 <p>Suppose we’ve created an elixir scaffolding using <code>mix
  new</code>. RabbitMQ uses <code>erlang.mk</code> as its build system, so our first task is to integrate some <code>mix</code> commands into <code>Makefile</code>. Here is the snippet that hooks <code>mix</code> into build process and which needs to be added to <a href="https://github.com/rabbitmq/rabbitmq-metronome/blob/master/Makefile">Makefile of the original metronome plugin</a>:</p>

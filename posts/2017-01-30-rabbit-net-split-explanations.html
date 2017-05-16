@@ -23,9 +23,9 @@
 
     <section class="content">
       <h1>RabbitMQ net-split messages explanation</h1>
-      <div class="info">
+
+<div>
     Posted on January 30, 2017
-    
 </div>
 
 <p>After experiencing a network problem RabbitMQ writes a record to logs that looks like this:</p>
@@ -33,6 +33,7 @@
 node 'rabbit@192.168.155.11' down: connection_closed
 </code></pre>
 <p>In this case the reason is <code>connection_closed</code>. But sometimes it may not be evident what this actually means or what could have caused this error. Especially in some outright bizzare situations. Here I’m trying to document all the reasons that I’ve seen and how you can reproduce them.</p>
+<!--more-->
 <h1 id="connection_closed"><code>connection_closed</code></h1>
 <p>This happens any time when a connection is closed using “normal” mechanisms. Some ways to reproduce it:</p>
 <ul>

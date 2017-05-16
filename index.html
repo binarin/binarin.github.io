@@ -22,21 +22,47 @@
     </header>
 
     <section class="content">
-      <h1>Home</h1>
-      <h2>Posts</h2>
-<ul>
+      <ul class="posts">
     
-        <li>
-            <a href="./posts/2017-05-14-diy-power-supply-from-aliexpress.html">DIY power supply from AliExpress</a> - May 14, 2017
-        </li>
+    <li class="posts__item">
+      <h2 class="posts__item-title"><a class="posts__item-title" href="./posts/2017-05-14-diy-power-supply-from-aliexpress.html">DIY power supply from AliExpress</a></h2>
+      <h5 class="posts__item-date">May 14, 2017</h5>
+      <div class="posts__item-teaser">
+        <p>Just finished soldering and assembling a <a href="https://www.aliexpress.com/item/DIY-Kit-LM317-Adjustable-Regulated-Voltage-Step-down-Power-Supply-Suite-Module-Free-Shipping/32563951591.html?spm=2114.13010608.0.0.fAKrUW">DIY power supply</a> purchased from AliExpress.</p>
+
+        <div class="posts__item-metadata">
+          <a href="./posts/2017-05-14-diy-power-supply-from-aliexpress.html" class="posts__item-read-more">Read&nbsp;more…</a>
+        </div>
+      </div>
+    </li>
     
-        <li>
-            <a href="./posts/2017-04-19-rabbit-plugins-in-elixir.html">RabbitMQ plugins in Elixir</a> - April 19, 2017
-        </li>
+    <li class="posts__item">
+      <h2 class="posts__item-title"><a class="posts__item-title" href="./posts/2017-04-19-rabbit-plugins-in-elixir.html">RabbitMQ plugins in Elixir</a></h2>
+      <h5 class="posts__item-date">April 19, 2017</h5>
+      <div class="posts__item-teaser">
+        <p>As RabbitMQ is gradually adopting Elixir (i.e. for <a href="https://github.com/rabbitmq/rabbitmq-cli">the next generation of its CLI tools</a>), it’s natural that one would also want to use Elixir for writing plugins. There is a <a href="https://www.rabbitmq.com/blog/2013/06/03/using-elixir-to-write-rabbitmq-plugins/">blog post</a> from 2013 on that topic and most things there are still relevant - except the build instructions, as there was a complete revamp of build system in RabbitMQ. And I’m going to fill that gap.</p>
+
+        <div class="posts__item-metadata">
+          <a href="./posts/2017-04-19-rabbit-plugins-in-elixir.html" class="posts__item-read-more">Read&nbsp;more…</a>
+        </div>
+      </div>
+    </li>
     
-        <li>
-            <a href="./posts/2017-01-30-rabbit-net-split-explanations.html">RabbitMQ net-split messages explanation</a> - January 30, 2017
-        </li>
+    <li class="posts__item">
+      <h2 class="posts__item-title"><a class="posts__item-title" href="./posts/2017-01-30-rabbit-net-split-explanations.html">RabbitMQ net-split messages explanation</a></h2>
+      <h5 class="posts__item-date">January 30, 2017</h5>
+      <div class="posts__item-teaser">
+        <p>After experiencing a network problem RabbitMQ writes a record to logs that looks like this:</p>
+<pre class="example"><code>=INFO REPORT==== 30-Jan-2017::19:04:04 ===
+node 'rabbit@192.168.155.11' down: connection_closed
+</code></pre>
+<p>In this case the reason is <code>connection_closed</code>. But sometimes it may not be evident what this actually means or what could have caused this error. Especially in some outright bizzare situations. Here I’m trying to document all the reasons that I’ve seen and how you can reproduce them.</p>
+
+        <div class="posts__item-metadata">
+          <a href="./posts/2017-01-30-rabbit-net-split-explanations.html" class="posts__item-read-more">Read&nbsp;more…</a>
+        </div>
+      </div>
+    </li>
     
 </ul>
 
