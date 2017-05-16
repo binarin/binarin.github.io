@@ -59,6 +59,7 @@ a
 .posts
 {
   list-style-type : none;
+  padding         : 0px 0px 0px 0px;
 }
 
 .posts__item-title
