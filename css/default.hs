@@ -41,6 +41,7 @@ mainFooter = do
 postList = do
     ".posts" ? do
       listStyleType none
+      samePadding $ px 0
     ".posts__item-title" ? do
       fontSize $ px 18
       marginBottom $ px 0
