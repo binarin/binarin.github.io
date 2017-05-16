@@ -45,6 +45,8 @@ post = do
 
 main :: IO ()
 main = putCss $ do
+     html ? do
+       overflowY scroll
      body ? do
        fontFamily [] [sansSerif]
        fontSize $ px 18
