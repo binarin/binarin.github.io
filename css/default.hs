@@ -44,17 +44,19 @@ postList = do
     ".posts__item-title" ? do
       fontSize $ px 18
       marginBottom $ px 0
+      color black
     ".posts__item-date" ? do
       fontSize $ px 14
       fontColor $ rgb 100 100 100
       fontStyle italic
       marginTop $ px 0
       marginBottom $ px 0
+    ".posts__item-metadata" ? do
+      textAlign $ alignSide sideRight
     ".posts__item-read-more" ? do
       fontSize $ px 14
       color orange
       fontWeight bold
-      display block
       textAlign $ alignSide sideRight
 
 post = do
@@ -71,6 +73,7 @@ main = putCss $ do
        fontSize $ px 18
      a ? do
        color blue
+       textDecoration none
      mainHeader
      mainFooter
      post

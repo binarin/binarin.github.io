@@ -15,6 +15,10 @@ main = hakyll $ do
         route   $ setExtension "css"
         compile $ getResourceString >>= withItemBody (unixFilter "runghc" [])
 
+    match "css/*.css" $ do
+        route   idRoute
+        compile copyFileCompiler
+
     match (fromList ["about.org", "contact.org"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
