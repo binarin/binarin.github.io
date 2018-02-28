@@ -4,7 +4,6 @@ title: Wish-list
 
 * My wish-list
 
- - [[https://www.amazon.co.uk/Cirque-Easy-Cat-Glidepoint-Touchpad/dp/B000V5IFQA][Cirque Easy Cat]]
  - [[https://www.playstation.com/en-us/explore/accessories/gaming-controllers/dualshock-4/][DualShock 4]] and USB bluetooth dongle
  - [[https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3-kit.html][Prusa i3 MK3 kit]]
  - Deuter Kid Comfort 3
@@ -12,3 +11,5 @@ title: Wish-list
  - Phillips Hue Starter Kit Color
  - Nintendo Switch
  - [[https://www.ebay.com/itm/Mini-3-Axis-Laser-CNC-1610-Engraving-Machine-Pcb-Milling-Wood-Carving-Router/222735829942][CNC machine]]
+ - Lego Duplo blocks & train tracks in any amounts =)
+ - [[http://www.dell.com/en-us/shop/dell-power-companion-18000-mah-pw7015l-notebook-power-bank-65wh/apd/451-bbkv/pc-accessories][Dell Power Companion 18,000]]
