@@ -19,7 +19,7 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
-    match (fromList ["about.org", "contact.org"]) $ do
+    match (fromList ["about.org", "contact.org", "wishlist.org"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
