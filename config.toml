@@ -1,3 +1,5 @@
-baseURL = "http://example.org/"
+baseURL = "https://binarin.ru/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "binarin.ru"
+theme = "simple"
+Paginate = 2
