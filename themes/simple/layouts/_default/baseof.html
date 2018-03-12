@@ -10,8 +10,11 @@
 
     <body class="layout">
 
-      <header class="layout__header">
-        binarin.ru
+      <header class="layout__header header">
+        <a href="/" class="header__logo">binarin.ru</a>
+        <nav class="header__nav">
+          <a href="/page/about/" class="header__link">About</a>
+        </nav>
       </header>
 
       <div class="layout__main main">
@@ -21,18 +24,13 @@
         {{ end }}
         </main>
         <nav class="main__nav">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-          </ul>
         </nav>
         <aside class="main__aside">
-          aside
         </aside>
       </div>
 
       <footer class="layout__footer">
-        (c) Alexey Lebedeff
+        © 2018 Alexey Lebedeff
       </footer>
     </body>
 </html>
