@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://binarin.ru/post/diy-power-supply-from-aliexpress/</loc>
+    <lastmod>2017-05-14T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/post/rabbitmq-plugins-in-elixir/</loc>
+    <lastmod>2017-04-19T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/post/rabbitmq-net-split-explanations/</loc>
+    <lastmod>2017-01-30T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/page/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/electronics/</loc>
+    <lastmod>2017-05-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/page/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/post/</loc>
+    <lastmod>2017-05-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/rabbitmq/</loc>
+    <lastmod>2017-04-19T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/</loc>
+    <lastmod>2017-05-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/</loc>
+    <lastmod>2017-05-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

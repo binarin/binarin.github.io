@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/normalize.css"/>
+        <link rel="stylesheet" href="/css/styles.css"/>
+        <title>
+RabbitMQ net-split messages explanation
+</title>
+    </head>
+
+    <body class="layout">
+
+      <header class="layout__header header">
+        <a href="/" class="header__logo">binarin.ru</a>
+        <nav class="header__nav">
+          <a href="/page/about/" class="header__link">About</a>
+        </nav>
+      </header>
+
+      <div class="layout__main main">
+        <main class="main__content">
+        
+<article class="post">
+    <h2>RabbitMQ net-split messages explanation</h2>
+    <div class="post__publish-date">30 Jan 2017</div>
+    <p>After experiencing a network problem RabbitMQ writes a record to
+logs that looks like this:</p>
+
+<pre><code class="language-text">=INFO REPORT==== 30-Jan-2017::19:04:04 ===
+node 'rabbit@192.168.155.11' down: connection_closed
+</code></pre>
+
+<p></p>
+
+<p>In this case the reason is <code>connection_closed</code>. But sometimes it
+may not be evident what this actually means or what could have
+caused this error. Especially in some outright bizzare situations.
+Here I&rsquo;m trying to document all the reasons that I&rsquo;ve seen and how
+you can reproduce them.</p>
+
+<h2 id="connection-closed"><code>connection_closed</code></h2>
+
+<p>This happens any time when a connection is closed using &ldquo;normal&rdquo;
+mechanisms. Some ways to reproduce it:</p>
+
+<ul>
+<li>Stop a remote RabbitMQ node</li>
+<li>Send RST from a remote node, e.g. using <code>iptables</code></li>
+<li>Attach to a running ErlangVM with <code>gdb</code> and do <code>call
+      close(some-fd)</code> here</li>
+</ul>
+
+<h2 id="net-tick-timeout"><code>net_tick_timeout</code></h2>
+
+<p>Any time when a remote node stops responding - for sender it looks
+like blackholing. Some reasons:</p>
+
+<ul>
+<li>Loss of network connectivity between 2 machines</li>
+<li>Death of a remote machine</li>
+<li>Firewall rule that drops packets</li>
+<li>Somebody is sending a very big chunk of data through RabbitMQ
+cluster channel. E.g. such a big AMQP messages that it&rsquo;s enough
+to saturate network for at least <code>net_tick_timeout</code>.</li>
+</ul>
+
+<h2 id="disconnect"><code>disconnect</code></h2>
+
+<p>Explicit disconnect performed using
+<code>erlang:disconnect_node/1</code>. Either by some internal RabbitMQ
+mechanism or by somebody messing with <code>rabbitmqctl eval</code>.</p>
+
+<h2 id="etimedout"><code>etimedout</code></h2>
+
+<p>Another quite interesting reason. I believe that this can happen
+only when OS TCP stack is tuned in a such way that TCP timeout is
+less than <code>net_tick_timeout</code>. On Linux this can be reproduced with
+some extreme tuning:</p>
+
+<pre><code class="language-text">cd /proc/sys/net/ipv4
+echo 2 &gt; tcp_keepalive_intvl
+echo 1 &gt; tcp_keepalive_probes
+echo 2 &gt; tcp_keepalive_time
+echo 1 &gt; tcp_retries1
+echo 2 &gt; tcp_retries1
+</code></pre>
+
+<h2 id="econnreset"><code>econnreset</code></h2>
+
+<p>This is the most strange of all reasons which I&rsquo;ve seen only in
+production logs but can&rsquo;t reproduce myself. One very probable
+explanation is that RST packet has arrived with an exceptionally
+bad timing - just after a socket was returned from <code>epoll</code> as a
+ready one, but before read/write operation on it actually started.</p>
+</article>
+
+        </main>
+        <nav class="main__nav">
+        </nav>
+        <aside class="main__aside">
+        </aside>
+      </div>
+
+      <footer class="layout__footer">
+        © 2018 Alexey Lebedeff
+      </footer>
+    </body>
+</html>

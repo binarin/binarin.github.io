@@ -1,0 +1,42 @@
+@grey: #24292e;
+@on-grey: rgba(255, 255, 255, 0.75);
+
+@import "b-layout.less";
+@import "b-header.less";
+@import "b-main.less";
+@import "b-post.less";
+@import "b-post-list.less";
+
+.nav {
+}
+
+.nav__pages {
+    list-style: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__link {
+    color: @on-grey;
+    text-decoration: none;
+}
+
+
+
+@media (min-width: 768px) {
+    .main {
+        flex-direction: row;
+        justify-content: space-between;
+        flex: 1;
+    }
+    .main__content {
+        flex: 1;
+        max-width: 960px;
+    }
+    .main__nav, .main__aside {
+        flex: 0 0 12em;
+    }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/normalize.css"/>
+        <link rel="stylesheet" href="/css/styles.css"/>
+        <title>
+RabbitMQ plugins in Elixir
+</title>
+    </head>
+
+    <body class="layout">
+
+      <header class="layout__header header">
+        <a href="/" class="header__logo">binarin.ru</a>
+        <nav class="header__nav">
+          <a href="/page/about/" class="header__link">About</a>
+        </nav>
+      </header>
+
+      <div class="layout__main main">
+        <main class="main__content">
+        
+<article class="post">
+    <h2>RabbitMQ plugins in Elixir</h2>
+    <div class="post__publish-date">19 Apr 2017</div>
+    <p>As RabbitMQ is gradually adopting Elixir (i.e. for <a href="https://github.com/rabbitmq/rabbitmq-cli">the next
+generation of its CLI tools</a>), it&rsquo;s natural that one would also want
+to use Elixir for writing plugins. There is a <a href="https://www.rabbitmq.com/blog/2013/06/03/using-elixir-to-write-rabbitmq-plugins/">blog post</a> from 2013
+on that topic and most things there are still relevant - except the
+build instructions, as there was a complete revamp of build system
+in RabbitMQ. And I&rsquo;m going to fill that gap.</p>
+
+<p></p>
+
+<p>RabbitMQ plugin development guide suggests that the easiest way to
+start a new plugin is to copy the simplest existing plugin
+<code>rabbitmq_metronome</code>. I&rsquo;ve re-implemented it in Elixir at
+<a href="https://github.com/binarin/rabbitmq_metronome_elixir">https://github.com/binarin/rabbitmq_metronome_elixir</a>. You can just
+fork it and start hacking (note that it only works with what is
+going to be a <code>3.7.0</code> release of rabbit). Or read further down
+about some details that make this possible.</p>
+
+<p>Suppose we&rsquo;ve created an elixir scaffolding using <code>mix
+   new</code>. RabbitMQ uses <code>erlang.mk</code> as its build system, so our first
+task is to integrate some <code>mix</code> commands into <code>Makefile</code>. Here is
+the snippet that hooks <code>mix</code> into build process and which needs to
+be added to <a href="https://github.com/rabbitmq/rabbitmq-metronome/blob/master/Makefile">Makefile of the original metronome plugin</a>:</p>
+
+<pre><code class="language-makefile">elixir_srcs := mix.exs \
+               $(shell find config lib -name &quot;*.ex&quot; -o -name &quot;*.exs&quot;)
+
+app:: $(elixir_srcs) deps
+     $(MIX) deps.get
+     $(MIX) deps.compile
+     $(MIX) compile
+</code></pre>
+
+<p>Running <code>mix</code> 3 times in a row is a bit expensive, so it&rsquo;s
+advisable to add some <a href="https://hexdocs.pm/mix/Mix.html#module-aliases">aliases</a> to <code>mix.exs</code>:</p>
+
+<pre><code class="language-elixir">[
+  make_all: [
+    &quot;deps.get&quot;,
+    &quot;deps.compile&quot;,
+    &quot;compile&quot;,
+  ],
+]
+</code></pre>
+
+<p>Then we can replace 3 <code>mix</code> calls with a single one in our <code>Makefile</code>:</p>
+
+<pre><code class="language-makefile">app:: $(elixir_srcs) deps
+     $(MIX) make_all
+</code></pre>
+
+<p>Another thing is that we can drop <code>PROJECT_DESCRIPTION</code>,
+<code>PROJECT_MOD</code> and <code>PROJECT_ENV</code> variables from <code>Makefile</code>, as
+<code>erlang.mk</code> uses them only to generate an <code>.app</code> file, and <code>mix</code> is
+already handling this task.</p>
+
+<p><code>erlang.mk</code> is the primary build system for RabbitMQ, so we need to
+tell <code>mix</code> that it shouldn&rsquo;t fetch or build dependencies that are
+managed by <code>erlang.mk</code>. For <code>rabbit</code> and <code>rabbit_common</code>
+which are always the direct dependencies we add this:</p>
+
+<pre><code class="language-elixir">[
+  {
+    :rabbit_common,
+    # `deps` is erlang.mk directory with dependencies
+    path: &quot;deps/rabbit_common&quot;,
+    compile: &quot;true&quot;,
+    override: true
+  },
+  {
+    :rabbit,
+    path: &quot;deps/rabbit&quot;,
+    compile: &quot;true&quot;,
+    override: true
+  },
+]
+</code></pre>
+
+<p>There can be an additional trouble when we use some libraries that
+have transient dependencies on RabbitMQ sub-projects. E.g. this is
+the case with <code>amqp</code> elixir library, which depends on <code>amqp_client</code>
+and in turn on <code>rabbit_common</code>. If we don&rsquo;t explicitly specify that
+this depency is managed by <code>erlang.mk</code>, <code>mix</code> will try to fetch
+it - and it can fetch a version incompatible with our
+<code>rabbit_common</code>.</p>
+
+<p>And that&rsquo;s it. There are some thing that I haven&rsquo;t figured out yet,
+like writing CT suites in Elixir; or that sometimes I need to
+delete <code>plugins</code> and <code>_build</code> folders to make my
+changes active. But other than that everything is fine.</p>
+</article>
+
+        </main>
+        <nav class="main__nav">
+        </nav>
+        <aside class="main__aside">
+        </aside>
+      </div>
+
+      <footer class="layout__footer">
+        © 2018 Alexey Lebedeff
+      </footer>
+    </body>
+</html>
