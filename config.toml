@@ -2,4 +2,4 @@ baseURL = "https://binarin.ru/"
 languageCode = "en-us"
 title = "binarin.ru"
 theme = "simple"
-Paginate = 2
+Paginate = 10

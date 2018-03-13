@@ -1,6 +1,7 @@
 +++
 title = "RabbitMQ plugins in Elixir"
 author = ["Alexey Lebedeff"]
+publishDate = 2017-04-19
 tags = ["rabbitmq"]
 draft = false
 +++

@@ -1,6 +1,7 @@
 +++
 title = "RabbitMQ net-split messages explanation"
 author = ["Alexey Lebedeff"]
+publishDate = 2017-01-30
 tags = ["rabbitmq"]
 draft = false
 +++

@@ -1,4 +1,3 @@
-{{/* -*- engine: go -*- */}}
 {{define "main"}}
 
 {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
@@ -7,7 +6,8 @@
     <div class="post-list__posts">
         {{ range $paginator.Pages }}
             <div class="post-list__post">
-                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                <h2 class="post-list__title"><a class="post-list__title-link" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                <span class="post-list__title-date">{{ .Date.Format "02 Jan 2006" }}</span>
                 {{ .Summary }}
                 {{ if .Truncated }}
                     <a class="post-list__read-more" href="{{ .Permalink }}">Read more…</a>
