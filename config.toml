@@ -3,3 +3,4 @@ languageCode = "en-us"
 title = "binarin.ru"
 theme = "simple"
 Paginate = 10
+pygmentsUseClasses = true
