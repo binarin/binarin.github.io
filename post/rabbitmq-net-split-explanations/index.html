@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/normalize.css"/>
+        <link rel="stylesheet" href="/css/syntax.css"/>
         <link rel="stylesheet" href="/css/styles.css"/>
         <title>
 RabbitMQ net-split messages explanation
@@ -94,6 +95,12 @@ production logs but can&rsquo;t reproduce myself. One very probable
 explanation is that RST packet has arrived with an exceptionally
 bad timing - just after a socket was returned from <code>epoll</code> as a
 ready one, but before read/write operation on it actually started.</p>
+    <div class="post__tags">
+        Tags:
+        
+            <a href="/tags/rabbitmq">rabbitmq</a>
+        
+    </div>
 </article>
 
         </main>

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/normalize.css"/>
+        <link rel="stylesheet" href="/css/syntax.css"/>
         <link rel="stylesheet" href="/css/styles.css"/>
         <title>
 RabbitMQ plugins in Elixir
@@ -48,32 +49,31 @@ task is to integrate some <code>mix</code> commands into <code>Makefile</code>. 
 the snippet that hooks <code>mix</code> into build process and which needs to
 be added to <a href="https://github.com/rabbitmq/rabbitmq-metronome/blob/master/Makefile">Makefile of the original metronome plugin</a>:</p>
 
-<pre><code class="language-makefile">elixir_srcs := mix.exs \
-               $(shell find config lib -name &quot;*.ex&quot; -o -name &quot;*.exs&quot;)
+<div class="highlight"><pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nv">elixir_srcs</span> <span class="o">:=</span> mix.exs <span class="se">\
+</span><span class="se"></span>               <span class="k">$(</span>shell find config lib -name <span class="s2">&#34;*.ex&#34;</span> -o -name <span class="s2">&#34;*.exs&#34;</span><span class="k">)</span>
 
-app:: $(elixir_srcs) deps
-     $(MIX) deps.get
-     $(MIX) deps.compile
-     $(MIX) compile
-</code></pre>
+<span class="nf">app</span><span class="o">::</span> <span class="k">$(</span><span class="nv">elixir_srcs</span><span class="k">)</span> <span class="n">deps</span>
+     <span class="k">$(</span>MIX<span class="k">)</span> deps.get
+     <span class="k">$(</span>MIX<span class="k">)</span> deps.compile
+     <span class="k">$(</span>MIX<span class="k">)</span> compile
+</code></pre></div>
 
 <p>Running <code>mix</code> 3 times in a row is a bit expensive, so it&rsquo;s
 advisable to add some <a href="https://hexdocs.pm/mix/Mix.html#module-aliases">aliases</a> to <code>mix.exs</code>:</p>
 
-<pre><code class="language-elixir">[
-  make_all: [
-    &quot;deps.get&quot;,
-    &quot;deps.compile&quot;,
-    &quot;compile&quot;,
-  ],
-]
-</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="p">[</span>
+  <span class="ss">make_all</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&#34;deps.get&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;deps.compile&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;compile&#34;</span><span class="p">,</span>
+  <span class="p">],</span>
+<span class="p">]</span></code></pre></div>
 
 <p>Then we can replace 3 <code>mix</code> calls with a single one in our <code>Makefile</code>:</p>
 
-<pre><code class="language-makefile">app:: $(elixir_srcs) deps
-     $(MIX) make_all
-</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nf">app</span><span class="o">::</span> <span class="k">$(</span><span class="nv">elixir_srcs</span><span class="k">)</span> <span class="n">deps</span>
+     <span class="k">$(</span>MIX<span class="k">)</span> make_all
+</code></pre></div>
 
 <p>Another thing is that we can drop <code>PROJECT_DESCRIPTION</code>,
 <code>PROJECT_MOD</code> and <code>PROJECT_ENV</code> variables from <code>Makefile</code>, as
@@ -85,22 +85,21 @@ tell <code>mix</code> that it shouldn&rsquo;t fetch or build dependencies that a
 managed by <code>erlang.mk</code>. For <code>rabbit</code> and <code>rabbit_common</code>
 which are always the direct dependencies we add this:</p>
 
-<pre><code class="language-elixir">[
-  {
-    :rabbit_common,
-    # `deps` is erlang.mk directory with dependencies
-    path: &quot;deps/rabbit_common&quot;,
-    compile: &quot;true&quot;,
-    override: true
-  },
-  {
-    :rabbit,
-    path: &quot;deps/rabbit&quot;,
-    compile: &quot;true&quot;,
-    override: true
-  },
-]
-</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="ss">:rabbit_common</span><span class="p">,</span>
+    <span class="c1"># `deps` is erlang.mk directory with dependencies</span>
+    <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;deps/rabbit_common&#34;</span><span class="p">,</span>
+    <span class="ss">compile</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
+    <span class="ss">override</span><span class="p">:</span> <span class="n">true</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="ss">:rabbit</span><span class="p">,</span>
+    <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;deps/rabbit&#34;</span><span class="p">,</span>
+    <span class="ss">compile</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
+    <span class="ss">override</span><span class="p">:</span> <span class="n">true</span>
+  <span class="p">},</span>
+<span class="p">]</span></code></pre></div>
 
 <p>There can be an additional trouble when we use some libraries that
 have transient dependencies on RabbitMQ sub-projects. E.g. this is
@@ -114,6 +113,12 @@ it - and it can fetch a version incompatible with our
 like writing CT suites in Elixir; or that sometimes I need to
 delete <code>plugins</code> and <code>_build</code> folders to make my
 changes active. But other than that everything is fine.</p>
+    <div class="post__tags">
+        Tags:
+        
+            <a href="/tags/rabbitmq">rabbitmq</a>
+        
+    </div>
 </article>
 
         </main>

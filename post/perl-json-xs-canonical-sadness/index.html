@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/normalize.css"/>
+        <link rel="stylesheet" href="/css/syntax.css"/>
+        <link rel="stylesheet" href="/css/styles.css"/>
+        <title>
+Perl `JSON::XS` can produce un-canonical JSON
+</title>
+    </head>
+
+    <body class="layout">
+
+      <header class="layout__header header">
+        <a href="/" class="header__logo">binarin.ru</a>
+        <nav class="header__nav">
+          <a href="/page/about/" class="header__link">About</a>
+        </nav>
+      </header>
+
+      <div class="layout__main main">
+        <main class="main__content">
+        
+<article class="post">
+    <h2>Perl `JSON::XS` can produce un-canonical JSON</h2>
+    <div class="post__publish-date">14 Mar 2018</div>
+    <p>Sometimes you want to produce a canonical version of a data
+structure in JSON - with keys sorted and no additional
+whitespace. <a href="https://metacpan.org/pod/JSON::XS"><code>JSON::XS</code></a> promises us that we can achieve such result
+with a <code>canonical</code> option. It only notes that canonicalization
+doesn&rsquo;t work for tied hashes. But I&rsquo;ve just spent half a day
+debugging to learn that this is a bit more complicated.</p>
+
+<p></p>
+
+<p>To my complete surprise the following script fails most of the
+time:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="k">use</span> <span class="nn">Data::Printer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">JSON::XS</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">Test::More</span> <span class="p">(</span><span class="n">tests</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">my</span> <span class="nv">$data</span> <span class="o">=</span> <span class="p">{</span> <span class="n">date</span> <span class="o">=&gt;</span> <span class="s">&#34;2018-03-13&#34;</span><span class="p">,</span> <span class="n">prev_period</span>  <span class="o">=&gt;</span> <span class="s">&#34;2018-03-12&#34;</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=&gt;</span> <span class="s">&#34;Desktop&#34;</span><span class="p">};</span>
+<span class="k">my</span> <span class="nv">$pre</span> <span class="o">=</span> <span class="n"></span><span class="nn">JSON::XS</span><span class="o">-&gt;</span><span class="k">new</span><span class="o">-&gt;</span><span class="n"></span><span class="nn">utf8</span><span class="o">-&gt;</span><span class="n">canonical</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="n">p</span> <span class="nv">$data</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$post</span> <span class="o">=</span> <span class="n"></span><span class="nn">JSON::XS</span><span class="o">-&gt;</span><span class="k">new</span><span class="o">-&gt;</span><span class="n"></span><span class="nn">utf8</span><span class="o">-&gt;</span><span class="n">canonical</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="n">is</span> <span class="nv">$post</span><span class="p">,</span> <span class="nv">$pre</span><span class="p">;</span></code></pre></div>
+
+<p>Turns out this is a problem known for 3 years with both
+<a href="https://github.com/garu/Data-Printer/issues/75">Data::Printer</a> and <code>JSON::XS</code> - both unfixed, except for a fork at
+<a href="https://github.com/rurban/Cpanel-JSON-XS/pull/42">Cpanel-JSON-XS</a>.</p>
+
+<p>The thing is that even when you aren&rsquo;t using <code>Data::Printer</code>,
+somebody can still break your canonical JSON representation.</p>
+
+<p>I think I&rsquo;ll just switch to <code>Cpanel::JSON::XS</code>, there is <a href="https://metacpan.org/source/MLEHMANN/JSON-XS-3.04/XS.xs#L658">too much
+drama</a> about hash key randomization in <code>JSON::XS</code>.</p>
+    <div class="post__tags">
+        Tags:
+        
+            <a href="/tags/perl">perl</a>
+        
+            <a href="/tags/sadness">sadness</a>
+        
+    </div>
+</article>
+
+        </main>
+        <nav class="main__nav">
+        </nav>
+        <aside class="main__aside">
+        </aside>
+      </div>
+
+      <footer class="layout__footer">
+        © 2018 Alexey Lebedeff
+      </footer>
+    </body>
+</html>
