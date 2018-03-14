@@ -36,9 +36,18 @@
   text-align: right;
   color: rgba(0, 0, 0, 0.5);
 }
+.post__tags {
+  color: rgba(0, 0, 0, 0.5);
+  font-style: italic;
+}
 .post-list__read-more {
-  display: block;
-  text-align: right;
+  float: right;
+  text-decoration: none;
+}
+.post-list__tags,
+.post-list__tag {
+  color: rgba(0, 0, 0, 0.5);
+  font-style: italic;
 }
 .post-list__pager {
   padding-top: 1em;
@@ -61,6 +70,9 @@
 .post-list__title-date {
   display: block;
   color: rgba(0, 0, 0, 0.5);
+}
+.chroma {
+  padding: 0.5em;
 }
 .nav__pages {
   list-style: none;

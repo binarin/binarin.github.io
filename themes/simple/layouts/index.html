@@ -1,34 +1,5 @@
 {{define "main"}}
 
-{{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-
-<div class="post-list">
-    <div class="post-list__posts">
-        {{ range $paginator.Pages }}
-            <div class="post-list__post">
-                <h2 class="post-list__title"><a class="post-list__title-link" href="{{ .Permalink }}">{{ .Title }}</a></h2>
-                <span class="post-list__title-date">{{ .Date.Format "02 Jan 2006" }}</span>
-                {{ .Summary }}
-                {{ if .Truncated }}
-                    <a class="post-list__read-more" href="{{ .Permalink }}">Read more…</a>
-                {{ end }}
-            </div>
-        {{ end }}
-    </div>
-
-    <div class="post-list__pager">
-        {{ if $paginator.HasNext }}
-            <span><a class="post-list__pager-older" href="{{ $paginator.Next.URL }}">⇦ Older</a></span>
-        {{ else }}
-            <span class="post-list__pager-older">⇦ Older</span>
-        {{ end }}
-
-        {{ if $paginator.HasPrev }}
-            <a class="post-list__pager-newer" href="{{ $paginator.Prev.URL }}">Newer ⇨</a>
-        {{ else }}
-            <span class="post-list__pager-newer">Newer ⇨</span>
-        {{ end }}
-    </div>
-</div>
+{{ partial "b-post-list.html" . }}
 
 {{end}}

@@ -7,5 +7,11 @@
     <h2>{{ .Title }}</h2>
     <div class="post__publish-date">{{ .Date.Format "02 Jan 2006" }}</div>
     {{ .Content }}
+    <div class="post__tags">
+        Tags:
+        {{ range .Params.tags }}
+            <a href="{{ relURL (print "/tags/" . | urlize) }}">{{ . }}</a>
+        {{ end }}
+    </div>
 </article>
 {{end}}
