@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on binarin.ru</title>
+    <link>https://binarin.ru/tags/notes/</link>
+    <description>Recent content in Notes on binarin.ru</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Mar 2018 18:44:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://binarin.ru/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Notes about installing Lineage OS on Nexus 6P</title>
+      <link>https://binarin.ru/post/flashing-nexus-6p-checklist/</link>
+      <pubDate>Thu, 15 Mar 2018 18:44:00 +0100</pubDate>
+      
+      <guid>https://binarin.ru/post/flashing-nexus-6p-checklist/</guid>
+      <description>&lt;p&gt;Checklist for myself for the next time I&amp;rsquo;ll be flashing my Nexus 6P
+(because official &lt;a href=&#34;https://wiki.lineageos.org/devices/angler/install&#34;&gt;Lineage OS instructions&lt;/a&gt; are missing some
+important parts).
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
