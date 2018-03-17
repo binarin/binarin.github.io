@@ -1,5 +1,5 @@
 +++
-title = "Reloading threepenny-gui apps while developing"
+title = "Auto-reload threepenny-gui apps during development"
 author = ["Alexey Lebedeff"]
 date = 2018-03-17T00:00:00+01:00
 tags = ["haskell", "gui"]
