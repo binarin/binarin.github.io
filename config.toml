@@ -2,5 +2,6 @@ baseURL = "https://binarin.ru/"
 languageCode = "en-us"
 title = "binarin.ru"
 theme = "simple"
-Paginate = 10
+paginate = 10
 pygmentsUseClasses = true
+buildDrafts = false

@@ -1,7 +1,7 @@
 +++
 title = "Perl `JSON::XS` can produce un-canonical JSON"
 author = ["Alexey Lebedeff"]
-date = 2018-03-14T12:51:00+01:00
+publishDate = 2018-03-14
 tags = ["perl", "sadness"]
 draft = false
 +++

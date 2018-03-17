@@ -1,7 +1,7 @@
 +++
 title = "Notes about installing Lineage OS on Nexus 6P"
 author = ["Alexey Lebedeff"]
-date = 2018-03-15T18:44:00+01:00
+publishDate = 2018-03-15
 tags = ["android", "notes"]
 draft = false
 +++
