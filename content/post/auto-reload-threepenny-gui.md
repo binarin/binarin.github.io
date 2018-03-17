@@ -30,7 +30,7 @@ that is suitable for my example:
 {{< highlight shell "linenos=table, linenostart=1" >}}
 ghcid -c 'cabal new-repl' \
       --reload=./Main.hs \
-      -T $':reload Main\nMain.main' \
+      -T Main.main \
       --restart=./threepenny-reloading-example.cabal
 {{< /highlight >}}
 
@@ -41,9 +41,8 @@ ghcid -c 'cabal new-repl' \
     changes. You may want to monitor not only Haskell sources, but
     also some web assets like CSS and JavaScript files - so that
     reload will happen on all relevant changes
-3.  This is a command that is being sent to `ghci` after every
-    successful compilation (`$''` is just a bash syntax that allows
-    us to encode literal newline using `\n`)
+3.  This is a command to start an app that is being sent to `ghci`
+    after every successful (re)compilation
 4.  And we want to restart the whole `ghci` process when there are
     some changes to a cabal file, like new dependencies added or
     flags changed
