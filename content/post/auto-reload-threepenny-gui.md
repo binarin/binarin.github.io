@@ -53,7 +53,7 @@ ghcid -c 'cabal new-repl' \
 
 That's better, yet we still need to refresh our browser
 manually. With small changes to Haskell code we can automate this
-part also. Our `main` is usually looks like this:
+part also. Our `main` usually looks like this:
 
 {{< highlight haskell >}}
 main = do
