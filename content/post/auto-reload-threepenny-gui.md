@@ -8,24 +8,24 @@ draft = false
 
 When you are developing a [threepenny](https://hackage.haskell.org/package/threepenny-gui-0.8.0.0) app, you need to perform the
 same dance after every change: recompile and restart the app, and
-then manually reload a page in browser. This becomes tiresome very
-quickly. But with the help of `ghcid` and with small changes to
-your Haskell code you can completely automate this process.
+then manually reload a page in a browser. This becomes tiresome
+very quickly. But with the help of `ghcid` and with small changes
+to your Haskell code you can completely automate this process.
 
 <!--more-->
 
-All commands assume the simplest project layout with only code in
-`Main.hs`. This is direct copy from [threepenny-gui documentation](https://hackage.haskell.org/package/threepenny-gui-0.8.2.2/docs/Graphics-UI-Threepenny.html),
+All commands assume the simplest project layout with all the code
+in `Main.hs`. It's a direct copy from [threepenny-gui documentation](https://hackage.haskell.org/package/threepenny-gui-0.8.2.2/docs/Graphics-UI-Threepenny.html),
 and you can clone my [example repository](https://github.com/binarin/threepenny-reloading-example) which also adds all the
 necessary boilerplate.
 
 
 ## Using `ghcid` for reloading {#using-ghcid-for-reloading}
 
-Almost all of the problems can be solved by using `ghcid`, which
+Almost all of the problems can be solved by using [`ghcid`](https://github.com/ndmitchell/ghcid), which
 will give us a freshly recompiled and started application every
 time we'll change the source code. Here is an example of a command
-that is suitable for my example from above:
+that is suitable for my example:
 
 {{< highlight shell "linenos=table, linenostart=1" >}}
 ghcid -c 'cabal new-repl' \
@@ -51,9 +51,9 @@ ghcid -c 'cabal new-repl' \
 
 ## Reloading browser page {#reloading-browser-page}
 
-That's better, but we still need to refresh our browser
-manually. But with small changes to Haskell code we can automate
-this part also. Our `main` is usually looking like this:
+That's better, yet we still need to refresh our browser
+manually. With small changes to Haskell code we can automate this
+part also. Our `main` is usually looks like this:
 
 {{< highlight haskell >}}
 main = do
@@ -80,13 +80,13 @@ when `xdotool` is installed. But it's OK, as this is
 development-only code that doesn't even need to be robust or
 universal.
 
-My Linux/Firefox implementation the fact that threepenny
+My Linux/Firefox implementation uses the fact that threepenny
 browser-side code tries to reload a page as soon as it looses
 connection to a server, which usually results in `Problem loading
     page` error (because recompiling and restarting application is not
 as fast as page reload). The code just searches for all windows
 which has `Problem loading page` in their title and sends reload
-hotkey (`Ctrl-R`) to every of them.
+hotkey (`Ctrl-R`) to each of them.
 
 {{< highlight haskell >}}
 import Control.Monad (forM_)
