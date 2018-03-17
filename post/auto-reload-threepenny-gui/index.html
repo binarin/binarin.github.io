@@ -52,7 +52,7 @@ that is suitable for my example:</p>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">ghcid -c <span class="s1">&#39;cabal new-repl&#39;</span> <span class="se">\
 </span><span class="se"></span>      --reload<span class="o">=</span>./Main.hs <span class="se">\
-</span><span class="se"></span>      -T <span class="s1">$&#39;:reload Main\nMain.main&#39;</span> <span class="se">\
+</span><span class="se"></span>      -T Main.main <span class="se">\
 </span><span class="se"></span>      --restart<span class="o">=</span>./threepenny-reloading-example.cabal</code></pre></td></tr></table>
 </div>
 </div>
@@ -65,9 +65,8 @@ tell what files or directories should be watched for
 changes. You may want to monitor not only Haskell sources, but
 also some web assets like CSS and JavaScript files - so that
 reload will happen on all relevant changes</li>
-<li>This is a command that is being sent to <code>ghci</code> after every
-successful compilation (<code>$''</code> is just a bash syntax that allows
-us to encode literal newline using <code>\n</code>)</li>
+<li>This is a command to start an app that is being sent to <code>ghci</code>
+after every successful (re)compilation</li>
 <li>And we want to restart the whole <code>ghci</code> process when there are
 some changes to a cabal file, like new dependencies added or
 flags changed</li>
