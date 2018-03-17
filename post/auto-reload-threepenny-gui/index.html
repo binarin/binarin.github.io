@@ -28,23 +28,23 @@ Reloading threepenny-gui apps while developing
     <div class="post__publish-date">17 Mar 2018</div>
     <p>When you are developing a <a href="https://hackage.haskell.org/package/threepenny-gui-0.8.0.0">threepenny</a> app, you need to perform the
 same dance after every change: recompile and restart the app, and
-then manually reload a page in browser. This becomes tiresome very
-quickly. But with the help of <code>ghcid</code> and with small changes to
-your Haskell code you can completely automate this process.</p>
+then manually reload a page in a browser. This becomes tiresome
+very quickly. But with the help of <code>ghcid</code> and with small changes
+to your Haskell code you can completely automate this process.</p>
 
 <p></p>
 
-<p>All commands assume the simplest project layout with only code in
-<code>Main.hs</code>. This is direct copy from <a href="https://hackage.haskell.org/package/threepenny-gui-0.8.2.2/docs/Graphics-UI-Threepenny.html">threepenny-gui documentation</a>,
+<p>All commands assume the simplest project layout with all the code
+in <code>Main.hs</code>. It&rsquo;s a direct copy from <a href="https://hackage.haskell.org/package/threepenny-gui-0.8.2.2/docs/Graphics-UI-Threepenny.html">threepenny-gui documentation</a>,
 and you can clone my <a href="https://github.com/binarin/threepenny-reloading-example">example repository</a> which also adds all the
 necessary boilerplate.</p>
 
 <h2 id="using-ghcid-for-reloading">Using <code>ghcid</code> for reloading</h2>
 
-<p>Almost all of the problems can be solved by using <code>ghcid</code>, which
+<p>Almost all of the problems can be solved by using <a href="https://github.com/ndmitchell/ghcid"><code>ghcid</code></a>, which
 will give us a freshly recompiled and started application every
 time we&rsquo;ll change the source code. Here is an example of a command
-that is suitable for my example from above:</p>
+that is suitable for my example:</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -75,9 +75,9 @@ flags changed</li>
 
 <h2 id="reloading-browser-page">Reloading browser page</h2>
 
-<p>That&rsquo;s better, but we still need to refresh our browser
-manually. But with small changes to Haskell code we can automate
-this part also. Our <code>main</code> is usually looking like this:</p>
+<p>That&rsquo;s better, yet we still need to refresh our browser
+manually. With small changes to Haskell code we can automate this
+part also. Our <code>main</code> is usually looks like this:</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
   <span class="nf">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
@@ -100,13 +100,13 @@ when <code>xdotool</code> is installed. But it&rsquo;s OK, as this is
 development-only code that doesn&rsquo;t even need to be robust or
 universal.</p>
 
-<p>My Linux/Firefox implementation the fact that threepenny
+<p>My Linux/Firefox implementation uses the fact that threepenny
 browser-side code tries to reload a page as soon as it looses
 connection to a server, which usually results in <code>Problem loading
     page</code> error (because recompiling and restarting application is not
 as fast as page reload). The code just searches for all windows
 which has <code>Problem loading page</code> in their title and sends reload
-hotkey (<code>Ctrl-R</code>) to every of them.</p>
+hotkey (<code>Ctrl-R</code>) to each of them.</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="kr">import</span> <span class="nn">Control.Monad</span> <span class="p">(</span><span class="nf">forM_</span><span class="p">)</span>
 <span class="kr">import</span> <span class="nn">Control.Monad.Catch</span>

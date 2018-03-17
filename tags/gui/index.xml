@@ -19,9 +19,9 @@
       <guid>https://binarin.ru/post/auto-reload-threepenny-gui/</guid>
       <description>&lt;p&gt;When you are developing a &lt;a href=&#34;https://hackage.haskell.org/package/threepenny-gui-0.8.0.0&#34;&gt;threepenny&lt;/a&gt; app, you need to perform the
 same dance after every change: recompile and restart the app, and
-then manually reload a page in browser. This becomes tiresome very
-quickly. But with the help of &lt;code&gt;ghcid&lt;/code&gt; and with small changes to
-your Haskell code you can completely automate this process.&lt;/p&gt;
+then manually reload a page in a browser. This becomes tiresome
+very quickly. But with the help of &lt;code&gt;ghcid&lt;/code&gt; and with small changes
+to your Haskell code you can completely automate this process.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
