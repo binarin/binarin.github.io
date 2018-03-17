@@ -6,7 +6,7 @@
     <description>Recent content in Perl on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Mar 2018 12:51:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 14 Mar 2018 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://binarin.ru/tags/perl/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Perl `JSON::XS` can produce un-canonical JSON</title>
       <link>https://binarin.ru/post/perl-json-xs-canonical-sadness/</link>
-      <pubDate>Wed, 14 Mar 2018 12:51:00 +0100</pubDate>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate>
       
       <guid>https://binarin.ru/post/perl-json-xs-canonical-sadness/</guid>
       <description>&lt;p&gt;Sometimes you want to produce a canonical version of a data

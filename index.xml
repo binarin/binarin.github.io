@@ -6,15 +6,30 @@
     <description>Recent content on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Mar 2018 18:44:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 17 Mar 2018 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://binarin.ru/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Reloading threepenny-gui apps while developing</title>
+      <link>https://binarin.ru/post/auto-reload-threepenny-gui/</link>
+      <pubDate>Sat, 17 Mar 2018 00:00:00 +0100</pubDate>
+      
+      <guid>https://binarin.ru/post/auto-reload-threepenny-gui/</guid>
+      <description>&lt;p&gt;When you are developing a &lt;a href=&#34;https://hackage.haskell.org/package/threepenny-gui-0.8.0.0&#34;&gt;threepenny&lt;/a&gt; app, you need to perform the
+same dance after every change: recompile and restart the app, and
+then manually reload a page in browser. This becomes tiresome very
+quickly. But with the help of &lt;code&gt;ghcid&lt;/code&gt; and with small changes to
+your Haskell code you can completely automate this process.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Notes about installing Lineage OS on Nexus 6P</title>
       <link>https://binarin.ru/post/flashing-nexus-6p-checklist/</link>
-      <pubDate>Thu, 15 Mar 2018 18:44:00 +0100</pubDate>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0100</pubDate>
       
       <guid>https://binarin.ru/post/flashing-nexus-6p-checklist/</guid>
       <description>&lt;p&gt;Checklist for myself for the next time I&amp;rsquo;ll be flashing my Nexus 6P
@@ -26,7 +41,7 @@ important parts).
     <item>
       <title>Perl `JSON::XS` can produce un-canonical JSON</title>
       <link>https://binarin.ru/post/perl-json-xs-canonical-sadness/</link>
-      <pubDate>Wed, 14 Mar 2018 12:51:00 +0100</pubDate>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate>
       
       <guid>https://binarin.ru/post/perl-json-xs-canonical-sadness/</guid>
       <description>&lt;p&gt;Sometimes you want to produce a canonical version of a data

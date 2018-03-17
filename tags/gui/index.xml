@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gui on binarin.ru</title>
+    <link>https://binarin.ru/tags/gui/</link>
+    <description>Recent content in Gui on binarin.ru</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Mar 2018 00:00:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://binarin.ru/tags/gui/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reloading threepenny-gui apps while developing</title>
+      <link>https://binarin.ru/post/auto-reload-threepenny-gui/</link>
+      <pubDate>Sat, 17 Mar 2018 00:00:00 +0100</pubDate>
+      
+      <guid>https://binarin.ru/post/auto-reload-threepenny-gui/</guid>
+      <description>&lt;p&gt;When you are developing a &lt;a href=&#34;https://hackage.haskell.org/package/threepenny-gui-0.8.0.0&#34;&gt;threepenny&lt;/a&gt; app, you need to perform the
+same dance after every change: recompile and restart the app, and
+then manually reload a page in browser. This becomes tiresome very
+quickly. But with the help of &lt;code&gt;ghcid&lt;/code&gt; and with small changes to
+your Haskell code you can completely automate this process.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

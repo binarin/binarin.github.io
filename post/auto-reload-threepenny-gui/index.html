@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/normalize.css"/>
+        <link rel="stylesheet" href="/css/syntax.css"/>
+        <link rel="stylesheet" href="/css/styles.css"/>
+        <title>
+Reloading threepenny-gui apps while developing
+</title>
+    </head>
+
+    <body class="layout">
+
+      <header class="layout__header header">
+        <a href="/" class="header__logo">binarin.ru</a>
+        <nav class="header__nav">
+          <a href="/page/about/" class="header__link">About</a>
+        </nav>
+      </header>
+
+      <div class="layout__main main">
+        <main class="main__content">
+        
+<article class="post">
+    <h2>Reloading threepenny-gui apps while developing</h2>
+    <div class="post__publish-date">17 Mar 2018</div>
+    <p>When you are developing a <a href="https://hackage.haskell.org/package/threepenny-gui-0.8.0.0">threepenny</a> app, you need to perform the
+same dance after every change: recompile and restart the app, and
+then manually reload a page in browser. This becomes tiresome very
+quickly. But with the help of <code>ghcid</code> and with small changes to
+your Haskell code you can completely automate this process.</p>
+
+<p></p>
+
+<p>All commands assume the simplest project layout with only code in
+<code>Main.hs</code>. This is direct copy from <a href="https://hackage.haskell.org/package/threepenny-gui-0.8.2.2/docs/Graphics-UI-Threepenny.html">threepenny-gui documentation</a>,
+and you can clone my <a href="https://github.com/binarin/threepenny-reloading-example">example repository</a> which also adds all the
+necessary boilerplate.</p>
+
+<h2 id="using-ghcid-for-reloading">Using <code>ghcid</code> for reloading</h2>
+
+<p>Almost all of the problems can be solved by using <code>ghcid</code>, which
+will give us a freshly recompiled and started application every
+time we&rsquo;ll change the source code. Here is an example of a command
+that is suitable for my example from above:</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ghcid -c <span class="s1">&#39;cabal new-repl&#39;</span> <span class="se">\
+</span><span class="se"></span>      --reload<span class="o">=</span>./Main.hs <span class="se">\
+</span><span class="se"></span>      -T <span class="s1">$&#39;:reload Main\nMain.main&#39;</span> <span class="se">\
+</span><span class="se"></span>      --restart<span class="o">=</span>./threepenny-reloading-example.cabal</code></pre></td></tr></table>
+</div>
+</div>
+
+<ol>
+<li><code>cabal new-repl</code> can be replaced with whatever you use to get a
+ghci REPL (<code>stack ghci</code>, <code>cabal repl</code>, etc.)</li>
+<li><code>--reload</code> switches (which can be specified multiple times)
+tell what files or directories should be watched for
+changes. You may want to monitor not only Haskell sources, but
+also some web assets like CSS and JavaScript files - so that
+reload will happen on all relevant changes</li>
+<li>This is a command that is being sent to <code>ghci</code> after every
+successful compilation (<code>$''</code> is just a bash syntax that allows
+us to encode literal newline using <code>\n</code>)</li>
+<li>And we want to restart the whole <code>ghci</code> process when there are
+some changes to a cabal file, like new dependencies added or
+flags changed</li>
+</ol>
+
+<h2 id="reloading-browser-page">Reloading browser page</h2>
+
+<p>That&rsquo;s better, but we still need to refresh our browser
+manually. But with small changes to Haskell code we can automate
+this part also. Our <code>main</code> is usually looking like this:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+  <span class="nf">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
+  <span class="nf">startGUI</span> <span class="nf">defaultConfig</span> <span class="nf">setup</span></code></pre></div>
+
+<p>To achieve automatic reloading we can introduce alternative <code>main</code>
+which will be only used by <code>ghcid</code> (with the <code>-T</code> switch):</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">mainDevel</span> <span class="ow">=</span> <span class="kr">do</span>
+  <span class="nf">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
+  <span class="nf">forkIO</span> <span class="o">$</span> <span class="kr">do</span>
+      <span class="nf">threadDelay</span> <span class="mi">500000</span> <span class="c1">-- small delay so startGUI can start listening</span>
+      <span class="nf">refreshBrowserPage</span>
+  <span class="nf">startGUI</span> <span class="nf">defaultConfig</span> <span class="nf">setup</span></code></pre></div>
+
+<p>Now you need to come up with <code>refreshBrowserPage</code> for the system
+where you do development. Below you can see the dumbest
+implementation which will work only for Firefox on Linux, and only
+when <code>xdotool</code> is installed. But it&rsquo;s OK, as this is
+development-only code that doesn&rsquo;t even need to be robust or
+universal.</p>
+
+<p>My Linux/Firefox implementation the fact that threepenny
+browser-side code tries to reload a page as soon as it looses
+connection to a server, which usually results in <code>Problem loading
+    page</code> error (because recompiling and restarting application is not
+as fast as page reload). The code just searches for all windows
+which has <code>Problem loading page</code> in their title and sends reload
+hotkey (<code>Ctrl-R</code>) to every of them.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="kr">import</span> <span class="nn">Control.Monad</span> <span class="p">(</span><span class="nf">forM_</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Control.Monad.Catch</span>
+<span class="kr">import</span> <span class="nn">System.Process</span> <span class="p">(</span><span class="nf">readProcess</span><span class="p">,</span> <span class="nf">callProcess</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nn">Text.Read</span> <span class="p">(</span><span class="nf">readMaybe</span><span class="p">)</span>
+
+<span class="nf">refreshBrowserPage</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
+<span class="nf">refreshBrowserPage</span> <span class="ow">=</span> <span class="kr">do</span>
+    <span class="nf">maybeWindows</span> <span class="ow">::</span> <span class="kt">Either</span> <span class="kt">SomeException</span> <span class="kt">String</span> <span class="ow">&lt;-</span> <span class="nf">try</span>
+      <span class="p">(</span><span class="nf">readProcess</span> <span class="s">&#34;xdotool&#34;</span>
+        <span class="p">[</span><span class="s">&#34;search&#34;</span><span class="p">,</span> <span class="s">&#34;--all&#34;</span><span class="p">,</span> <span class="s">&#34;--name&#34;</span><span class="p">,</span> <span class="s">&#34;Problem loading&#34;</span><span class="p">]</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+    <span class="kr">case</span> <span class="nf">maybeWindows</span> <span class="kr">of</span>
+      <span class="kt">Left</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="nf">return</span> <span class="nb">()</span>
+      <span class="kt">Right</span> <span class="nf">idStr</span> <span class="ow">-&gt;</span> <span class="nf">forM_</span> <span class="p">(</span><span class="nf">lines</span> <span class="nf">idStr</span><span class="p">)</span> <span class="o">$</span> <span class="nf">\windowId</span> <span class="ow">-&gt;</span>
+        <span class="kr">case</span> <span class="nf">readMaybe</span> <span class="nf">windowId</span> <span class="kr">of</span>
+          <span class="kt">Nothing</span> <span class="ow">-&gt;</span> <span class="nf">return</span> <span class="nb">()</span>
+          <span class="kt">Just</span> <span class="p">(</span><span class="nf">n</span> <span class="ow">::</span> <span class="kt">Integer</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kr">do</span>
+              <span class="nf">putStrLn</span> <span class="o">$</span> <span class="nf">show</span> <span class="nf">n</span>
+              <span class="nf">callProcess</span> <span class="s">&#34;xdotool&#34;</span> <span class="p">[</span><span class="s">&#34;key&#34;</span><span class="p">,</span> <span class="s">&#34;--window&#34;</span><span class="p">,</span> <span class="nf">show</span> <span class="nf">n</span><span class="p">,</span> <span class="s">&#34;CTRL+R&#34;</span><span class="p">]</span>
+              <span class="nf">return</span> <span class="nb">()</span></code></pre></div>
+
+<p>And this is all that&rsquo;s needed to see your changes in browser
+almost immediately after you save an edited file.</p>
+    <div class="post__tags">
+        Tags:
+        
+            <a href="/tags/haskell">haskell</a>
+        
+            <a href="/tags/gui">gui</a>
+        
+    </div>
+</article>
+
+        </main>
+        <nav class="main__nav">
+        </nav>
+        <aside class="main__aside">
+        </aside>
+      </div>
+
+      <footer class="layout__footer">
+        © 2018 Alexey Lebedeff
+      </footer>
+    </body>
+</html>

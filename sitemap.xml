@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://binarin.ru/post/auto-reload-threepenny-gui/</loc>
+    <lastmod>2018-03-17T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://binarin.ru/post/flashing-nexus-6p-checklist/</loc>
-    <lastmod>2018-03-15T18:44:00+01:00</lastmod>
+    <lastmod>2018-03-15T00:00:00+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://binarin.ru/post/perl-json-xs-canonical-sadness/</loc>
-    <lastmod>2018-03-14T12:51:00+01:00</lastmod>
+    <lastmod>2018-03-14T00:00:00+01:00</lastmod>
   </url>
   
   <url>
@@ -33,7 +38,7 @@
   
   <url>
     <loc>https://binarin.ru/tags/android/</loc>
-    <lastmod>2018-03-15T18:44:00+01:00</lastmod>
+    <lastmod>2018-03-15T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -49,8 +54,20 @@
   </url>
   
   <url>
+    <loc>https://binarin.ru/tags/gui/</loc>
+    <lastmod>2018-03-17T00:00:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/haskell/</loc>
+    <lastmod>2018-03-17T00:00:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://binarin.ru/tags/notes/</loc>
-    <lastmod>2018-03-15T18:44:00+01:00</lastmod>
+    <lastmod>2018-03-15T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -61,13 +78,13 @@
   
   <url>
     <loc>https://binarin.ru/tags/perl/</loc>
-    <lastmod>2018-03-14T12:51:00+01:00</lastmod>
+    <lastmod>2018-03-14T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://binarin.ru/post/</loc>
-    <lastmod>2018-03-15T18:44:00+01:00</lastmod>
+    <lastmod>2018-03-17T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -79,19 +96,19 @@
   
   <url>
     <loc>https://binarin.ru/tags/sadness/</loc>
-    <lastmod>2018-03-14T12:51:00+01:00</lastmod>
+    <lastmod>2018-03-14T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://binarin.ru/tags/</loc>
-    <lastmod>2018-03-15T18:44:00+01:00</lastmod>
+    <lastmod>2018-03-15T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://binarin.ru/</loc>
-    <lastmod>2018-03-15T18:44:00+01:00</lastmod>
+    <lastmod>2018-03-17T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
