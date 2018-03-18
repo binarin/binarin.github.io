@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/normalize.css"/>
+        <link rel="stylesheet" href="/css/syntax.css"/>
+        <link rel="stylesheet" href="/css/styles.css"/>
+        <title>
+Kobo Aura One
+</title>
+    </head>
+
+    <body class="layout">
+
+      <header class="layout__header header">
+        <a href="/" class="header__logo">binarin.ru</a>
+        <nav class="header__nav">
+          <a href="/page/about/" class="header__link">About</a>
+        </nav>
+      </header>
+
+      <div class="layout__main main">
+        <main class="main__content">
+        
+<article>
+  <h2>Kobo Aura One</h2>
+  
+
+<h2 id="activating-and-using-telnet">Activating and using telnet</h2>
+
+<ul>
+<li>Get zip <a href="https://www.mobileread.com/forums/showpost.php?p=2681553&amp;postcount=3">here</a></li>
+<li>Put <code>KoboRoot.tgz</code> into <code>.kobo</code> folder</li>
+<li>Install update from KSM</li>
+<li>Enable usbnet, do smth like <code>sudo ifconfig enp0s20u1u1
+      192.168.2.100/29 up</code></li>
+<li><code>telnet 192.168.2.101</code> and use <code>root</code> for login</li>
+</ul>
+
+<h2 id="known-problems">Known problems</h2>
+
+<ul>
+<li><a href="https://github.com/koreader/koreader/issues/3505#issuecomment-345888042">Dictionary lookup not working</a> - use <code>sdcv</code> from that issue</li>
+<li><a href="https://github.com/koreader/koreader/issues/3600#issuecomment-370093639">Evernote plugin crashing</a> - copy .so-file per instruction</li>
+<li>I needed to delete <code>.adds/koreader</code> folder before upgrade,
+despite being said otherwise in readme. It started to crash
+while turning wi-fi on/off.</li>
+</ul>
+
+</article>
+
+        </main>
+        <nav class="main__nav">
+        </nav>
+        <aside class="main__aside">
+        </aside>
+      </div>
+
+      <footer class="layout__footer">
+        © 2018 Alexey Lebedeff
+      </footer>
+    </body>
+</html>

@@ -19,5 +19,14 @@
       <description>First heading within post Some content</description>
     </item>
     
+    <item>
+      <title>Kobo Aura One</title>
+      <link>https://binarin.ru/page/kobo-aura-one-notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://binarin.ru/page/kobo-aura-one-notes/</guid>
+      <description>Activating and using telnet  Get zip here Put KoboRoot.tgz into .kobo folder Install update from KSM Enable usbnet, do smth like sudo ifconfig enp0s20u1u1 192.168.2.100/29 up telnet 192.168.2.101 and use root for login  Known problems  Dictionary lookup not working - use sdcv from that issue Evernote plugin crashing - copy .so-file per instruction I needed to delete .adds/koreader folder before upgrade, despite being said otherwise in readme.</description>
+    </item>
+    
   </channel>
 </rss>
