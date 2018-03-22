@@ -1,0 +1,14 @@
+{{- $name := .Get "name" -}}
+{{- $title := .Get "title" -}}
+{{- $base := (print "/images/responsive/" $name) -}}
+{{- $extension := "jpg" -}}
+
+<a href="{{ $base }}.{{ $extension }}">
+    <img
+        srcset="{{ $base }}-320.{{ $extension }} 320w, {{ $base }}-480.{{ $extension }} 480w, {{ $base }}-800.{{ $extension }} 800w"
+        sizes="(max-width: 320px) 280px, (max-width: 480px) 440px, 800px"
+        src="{{ $base }}.{{ $extension }}"
+        alt="{{ $title }}"
+        title="{{ $title }}"
+    >
+</a>

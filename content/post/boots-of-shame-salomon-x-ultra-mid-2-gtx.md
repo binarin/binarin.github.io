@@ -13,9 +13,5 @@ after everyday use for just 8 months:
 
 <!--more-->
 
-<a href="/images/boots-of-shame/shitty-boots-salomon-x-ultra-close-small.jpg">
-   <img alt="Boots damage - close-up" src="/images/boots-of-shame/shitty-boots-salomon-x-ultra-close-tn.jpg">
-</a>
-<a href="/images/boots-of-shame/shitty-boots-salomon-x-ultra-small.jpg">
-   <img alt="Boots damage - whole boots" src="/images/boots-of-shame/shitty-boots-salomon-x-ultra-tn.jpg">
-</a>
+{{< picture name="shitty-boots-salomon-x-ultra-small" title="Boots damage - whole boots" >}}
+{{< picture name="shitty-boots-salomon-x-ultra-close-small" title="Boots damage - close-up" >}}
