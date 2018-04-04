@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recipes on binarin.ru</title>
+    <link>https://binarin.ru/recipe/</link>
+    <description>Recent content in Recipes on binarin.ru</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://binarin.ru/recipe/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cauliflower Fried Rice</title>
+      <link>https://binarin.ru/recipe/cauliflower-fried-rice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://binarin.ru/recipe/cauliflower-fried-rice/</guid>
+      <description>Original
+         Olive oil 2 tbsp   Onion (Diced) ½   Garlic (Minced) 3 Cloves   Minced Ginger 1 tsp   Riced Cauliflower 1 ½ cups   Eggs, Scrambled 3   Soy Sauce 2 dashes   Sesame Oil 1 tsp   Diced Bell Pepper ⅛   Cayenne Pepper 1 tsp   Black Pepper 1 tsp   Sea Salt ¼ tsp   All Purpose Seasoning 1 tbsp     Scramble Eggs with butter in a separate frying pan, and set aside.</description>
+    </item>
+    
+    <item>
+      <title>Keto Stuffed Meatloaf</title>
+      <link>https://binarin.ru/recipe/keto-stuffed-meatloaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://binarin.ru/recipe/keto-stuffed-meatloaf/</guid>
+      <description>Original
+   ground beef 500 grams     salt 1 teaspoon   pepper ½ teaspoon   garlic powder ½ teaspoon   cumin ½ teaspoon   cheddar cheese 6 slices   chopped onions ¼ cup   chopped green onions ¼ cup   spinach ½ cup   mushrooms ¼ cup     Mix the meat with the salt, pepper, garlic, and cumin.</description>
+    </item>
+    
+  </channel>
+</rss>

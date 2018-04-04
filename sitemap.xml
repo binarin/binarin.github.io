@@ -59,6 +59,10 @@
   </url>
   
   <url>
+    <loc>https://binarin.ru/recipe/cauliflower-fried-rice/</loc>
+  </url>
+  
+  <url>
     <loc>https://binarin.ru/tags/electronics/</loc>
     <lastmod>2017-05-14T00:00:00+02:00</lastmod>
     <priority>0</priority>
@@ -74,6 +78,10 @@
     <loc>https://binarin.ru/tags/haskell/</loc>
     <lastmod>2018-03-17T00:00:00+01:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/recipe/keto-stuffed-meatloaf/</loc>
   </url>
   
   <url>
@@ -106,6 +114,11 @@
   <url>
     <loc>https://binarin.ru/tags/rabbitmq/</loc>
     <lastmod>2017-04-19T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/recipe/</loc>
     <priority>0</priority>
   </url>
   
