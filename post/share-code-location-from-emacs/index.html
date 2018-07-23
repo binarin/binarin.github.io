@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/normalize.css"/>
+        <link rel="stylesheet" href="/css/syntax.css"/>
+        <link rel="stylesheet" href="/css/styles.css"/>
+        <title>
+Sharing code position from emacs
+</title>
+    </head>
+
+    <body class="layout">
+
+      <header class="layout__header header">
+        <a href="/" class="header__logo">binarin.ru</a>
+        <nav class="header__nav">
+            <a href="/recipe/" class="header__link">Recipes</a>
+            <a href="/page/about/" class="header__link">About</a>
+        </nav>
+      </header>
+
+      <div class="layout__main main">
+        <main class="main__content">
+        
+<article class="post">
+    <h2>Sharing code position from emacs</h2>
+    <div class="post__publish-date">23 Jul 2018</div>
+    <p>There are times when you want to share an exact code location with
+somebody. Maybe you&rsquo;ve just shown them something and want to follow
+up with an IM message. Or you want to add something to a bug
+tracker issue.</p>
+
+<p>The thing is that a code is opened in your favorite
+editor, so you know everything about a commit, a file and a line
+number. But to share a link you need to go to some kind of a web
+git UI and search for exact same things there.</p>
+
+<p>That&rsquo;s why I&rsquo;ve made a small helper function for emacs that tries
+to guess a correct web UI from a git remote, and points a browser
+to an exact location where the cursor in emacs currently is:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/open-web-link-to-source-code</span> <span class="p">()</span>
+  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">aif</span> <span class="p">(</span><span class="nb">block</span> <span class="nb">loop</span>
+           <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">url</span> <span class="p">(</span><span class="nv">binarin/get-git-remote-urls</span><span class="p">))</span>
+             <span class="p">(</span><span class="nv">anaphoric-cond</span>
+              <span class="p">((</span><span class="nv">s-match</span> <span class="s">&#34;\\(gitlab\\.[^:]+\\):\\(.*\\)\\.git&#34;</span> <span class="nv">url</span><span class="p">)</span>
+               <span class="p">(</span><span class="nb">return</span> <span class="p">(</span><span class="nv">binarin/make-gitlab-link</span> <span class="p">(</span><span class="nf">nth</span> <span class="mi">1</span> <span class="nv">it</span><span class="p">)</span> <span class="p">(</span><span class="nf">nth</span> <span class="mi">2</span> <span class="nv">it</span><span class="p">)))))))</span>
+      <span class="p">(</span><span class="nv">browse-url</span> <span class="nv">it</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Failed to generate a link from that file&#34;</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/get-git-remote-urls</span> <span class="p">()</span>
+  <span class="p">(</span><span class="nb">with-temp-buffer</span>
+    <span class="p">(</span><span class="nv">magit-git-insert</span> <span class="s">&#34;remote&#34;</span> <span class="s">&#34;-v&#34;</span><span class="p">)</span>
+    <span class="p">(</span><span class="nv">-remove</span> <span class="nf">#&#39;null</span>
+             <span class="p">(</span><span class="nv">-map</span> <span class="nf">#&#39;</span><span class="p">(</span><span class="nb">lambda</span> <span class="p">(</span><span class="nv">a</span><span class="p">)</span>
+                       <span class="p">(</span><span class="nf">nth</span> <span class="mi">1</span> <span class="p">(</span><span class="nv">s-split</span> <span class="s">&#34;[ \t]+&#34;</span> <span class="nv">a</span><span class="p">)))</span>
+                   <span class="p">(</span><span class="nv">s-lines</span> <span class="p">(</span><span class="nf">buffer-string</span><span class="p">))))))</span>
+
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/get-head-commit-sha</span> <span class="p">()</span>
+  <span class="p">(</span><span class="nb">with-temp-buffer</span>
+    <span class="p">(</span><span class="nv">magit-git-insert</span> <span class="s">&#34;rev-parse&#34;</span> <span class="s">&#34;HEAD&#34;</span><span class="p">)</span>
+    <span class="p">(</span><span class="nv">s-trim</span> <span class="p">(</span><span class="nf">buffer-string</span><span class="p">))))</span>
+
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/make-gitlab-link</span> <span class="p">(</span><span class="nv">base</span> <span class="nv">project</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">commit-sha</span> <span class="p">(</span><span class="nv">binarin/get-head-commit-sha</span><span class="p">))</span>
+        <span class="p">(</span><span class="nv">filename-relative</span>
+         <span class="p">(</span><span class="nf">car</span> <span class="p">(</span><span class="nv">projectile-make-relative-to-root</span> <span class="p">(</span><span class="nf">list</span> <span class="p">(</span><span class="nf">buffer-file-name</span><span class="p">)))))</span>
+        <span class="p">(</span><span class="nv">line-number</span> <span class="p">(</span><span class="nf">string-to-number</span> <span class="p">(</span><span class="nf">format-mode-line</span> <span class="s">&#34;%l&#34;</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;https://%s/%s/blob/%s/%s#L%d&#34;</span>
+            <span class="nv">base</span> <span class="nv">project</span> <span class="nv">commit-sha</span> <span class="nv">filename-relative</span> <span class="nv">line-number</span><span class="p">)))</span></code></pre></div>
+
+    <div class="post__tags">
+        Tags:
+        
+            <a href="/tags/emacs">emacs</a>
+        
+    </div>
+</article>
+
+        </main>
+        <nav class="main__nav">
+        </nav>
+        <aside class="main__aside">
+        </aside>
+      </div>
+
+      <footer class="layout__footer">
+        © 2018 Alexey Lebedeff
+      </footer>
+    </body>
+</html>

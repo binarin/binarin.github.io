@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://binarin.ru/post/share-code-location-from-emacs/</loc>
+    <lastmod>2018-07-23T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://binarin.ru/post/boots-of-shame-salomon-x-ultra-mid-2-gtx/</loc>
     <lastmod>2018-03-18T00:00:00+01:00</lastmod>
   </url>
@@ -73,6 +78,12 @@
   </url>
   
   <url>
+    <loc>https://binarin.ru/tags/emacs/</loc>
+    <lastmod>2018-07-23T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://binarin.ru/recipe/flourless-avocado-brownies/</loc>
   </url>
   
@@ -115,7 +126,7 @@
   
   <url>
     <loc>https://binarin.ru/post/</loc>
-    <lastmod>2018-03-18T00:00:00+01:00</lastmod>
+    <lastmod>2018-07-23T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -144,7 +155,7 @@
   
   <url>
     <loc>https://binarin.ru/</loc>
-    <lastmod>2018-03-18T00:00:00+01:00</lastmod>
+    <lastmod>2018-07-23T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   

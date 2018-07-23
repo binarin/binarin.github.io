@@ -6,10 +6,20 @@
     <description>Recent content in Posts on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Mar 2018 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://binarin.ru/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sharing code position from emacs</title>
+      <link>https://binarin.ru/post/share-code-location-from-emacs/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://binarin.ru/post/share-code-location-from-emacs/</guid>
+      <description>There are times when you want to share an exact code location with somebody. Maybe you&amp;rsquo;ve just shown them something and want to follow up with an IM message. Or you want to add something to a bug tracker issue.
+The thing is that a code is opened in your favorite editor, so you know everything about a commit, a file and a line number. But to share a link you need to go to some kind of a web git UI and search for exact same things there.</description>
+    </item>
     
     <item>
       <title>Salomon X Ultra MID 2 GTX aren&#39;t good</title>
