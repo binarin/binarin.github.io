@@ -21,6 +21,13 @@ to guess a correct web UI from a git remote, and points a browser
 to an exact location where the cursor in emacs currently is:
 
 {{< highlight emacs-lisp>}}
+;; this depends on:
+;; - s.el
+;; - dash.el
+;; - anaphora
+;; - magit
+;; - projectile
+
 (defun binarin/open-web-link-to-source-code ()
   (interactive)
   (aif (block loop
