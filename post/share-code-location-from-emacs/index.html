@@ -41,7 +41,14 @@ git UI and search for exact same things there.</p>
 to guess a correct web UI from a git remote, and points a browser
 to an exact location where the cursor in emacs currently is:</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/open-web-link-to-source-code</span> <span class="p">()</span>
+<div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="c1">;; this depends on:</span>
+<span class="c1">;; - s.el</span>
+<span class="c1">;; - dash.el</span>
+<span class="c1">;; - anaphora</span>
+<span class="c1">;; - magit</span>
+<span class="c1">;; - projectile</span>
+
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/open-web-link-to-source-code</span> <span class="p">()</span>
   <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
   <span class="p">(</span><span class="nv">aif</span> <span class="p">(</span><span class="nb">block</span> <span class="nb">loop</span>
            <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">url</span> <span class="p">(</span><span class="nv">binarin/get-git-remote-urls</span><span class="p">))</span>
