@@ -27,7 +27,7 @@ will give us a freshly recompiled and started application every
 time we'll change the source code. Here is an example of a command
 that is suitable for my example:
 
-{{< highlight shell "linenos=table, linenostart=1" >}}
+{{< highlight shell "linenos=table, linenostart=1">}}
 ghcid -c 'cabal new-repl' \
       --reload=./Main.hs \
       -T Main.main \
@@ -54,7 +54,7 @@ That's better, yet we still need to refresh our browser
 manually. With small changes to Haskell code we can automate this
 part also. Our `main` usually looks like this:
 
-{{< highlight haskell >}}
+{{< highlight haskell>}}
 main = do
   appInit -- can take indeterminate amount of time
   startGUI defaultConfig setup
@@ -63,7 +63,7 @@ main = do
 To achieve automatic reloading we can introduce alternative `main`
 which will be only used by `ghcid` (with the `-T` switch):
 
-{{< highlight haskell >}}
+{{< highlight haskell>}}
 mainDevel = do
   appInit -- can take indeterminate amount of time
   forkIO $ do
@@ -87,7 +87,7 @@ as fast as page reload). The code just searches for all windows
 which has `Problem loading page` in their title and sends reload
 hotkey (`Ctrl-R`) to each of them.
 
-{{< highlight haskell >}}
+{{< highlight haskell>}}
 import Control.Monad (forM_)
 import Control.Monad.Catch
 import System.Process (readProcess, callProcess)

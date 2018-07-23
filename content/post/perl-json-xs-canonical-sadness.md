@@ -18,7 +18,7 @@ debugging to learn that this is a bit more complicated.
 To my complete surprise the following script fails most of the
 time:
 
-{{< highlight perl >}}
+{{< highlight perl>}}
 use Data::Printer;
 use JSON::XS;
 use Test::More (tests => 1);

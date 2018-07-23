@@ -29,7 +29,7 @@ task is to integrate some `mix` commands into `Makefile`. Here is
 the snippet that hooks `mix` into build process and which needs to
 be added to [Makefile of the original metronome plugin](https://github.com/rabbitmq/rabbitmq-metronome/blob/master/Makefile):
 
-{{< highlight makefile >}}
+{{< highlight makefile>}}
 elixir_srcs := mix.exs \
                $(shell find config lib -name "*.ex" -o -name "*.exs")
 
@@ -42,7 +42,7 @@ app:: $(elixir_srcs) deps
 Running `mix` 3 times in a row is a bit expensive, so it's
 advisable to add some [aliases](https://hexdocs.pm/mix/Mix.html#module-aliases) to `mix.exs`:
 
-{{< highlight elixir >}}
+{{< highlight elixir>}}
 [
   make_all: [
     "deps.get",
@@ -54,7 +54,7 @@ advisable to add some [aliases](https://hexdocs.pm/mix/Mix.html#module-aliases) 
 
 Then we can replace 3 `mix` calls with a single one in our `Makefile`:
 
-{{< highlight makefile >}}
+{{< highlight makefile>}}
 app:: $(elixir_srcs) deps
      $(MIX) make_all
 {{< /highlight >}}
@@ -69,7 +69,7 @@ tell `mix` that it shouldn't fetch or build dependencies that are
 managed by `erlang.mk`. For `rabbit` and `rabbit_common`
 which are always the direct dependencies we add this:
 
-{{< highlight elixir >}}
+{{< highlight elixir>}}
 [
   {
     :rabbit_common,
