@@ -82,7 +82,7 @@ universal.
 My Linux/Firefox implementation uses the fact that threepenny
 browser-side code tries to reload a page as soon as it looses
 connection to a server, which usually results in `Problem loading
-    page` error (because recompiling and restarting application is not
+     page` error (because recompiling and restarting application is not
 as fast as page reload). The code just searches for all windows
 which has `Problem loading page` in their title and sends reload
 hotkey (`Ctrl-R`) to each of them.

@@ -31,7 +31,7 @@ mechanisms. Some ways to reproduce it:
 -   Stop a remote RabbitMQ node
 -   Send RST from a remote node, e.g. using `iptables`
 -   Attach to a running ErlangVM with `gdb` and do `call
-          close(some-fd)` here
+           close(some-fd)` here
 
 
 ## `net_tick_timeout` {#net-tick-timeout}

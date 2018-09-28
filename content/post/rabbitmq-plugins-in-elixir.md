@@ -24,7 +24,7 @@ going to be a `3.7.0` release of rabbit). Or read further down
 about some details that make this possible.
 
 Suppose we've created an elixir scaffolding using `mix
-   new`. RabbitMQ uses `erlang.mk` as its build system, so our first
+    new`. RabbitMQ uses `erlang.mk` as its build system, so our first
 task is to integrate some `mix` commands into `Makefile`. Here is
 the snippet that hooks `mix` into build process and which needs to
 be added to [Makefile of the original metronome plugin](https://github.com/rabbitmq/rabbitmq-metronome/blob/master/Makefile):
