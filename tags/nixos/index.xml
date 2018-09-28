@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nixos on binarin.ru</title>
+    <link>https://binarin.ru/tags/nixos/</link>
+    <description>Recent content in Nixos on binarin.ru</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Sep 2018 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://binarin.ru/tags/nixos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fully reproducible NixOS builds</title>
+      <link>https://binarin.ru/post/truly-reproducible-nixos/</link>
+      <pubDate>Fri, 28 Sep 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://binarin.ru/post/truly-reproducible-nixos/</guid>
+      <description>&lt;p&gt;One of big strengths of NixOS is reproducible builds. Yet achieving
+full reproducibility requires a bit of effort. The minimal set of
+things needed is a &lt;code&gt;configuration.nix&lt;/code&gt; and a reference to a
+&lt;code&gt;nixpkgs&lt;/code&gt; commit. And the easiest way to achieve this is to have a
+git-repo with configuration, which also references &lt;code&gt;nixpkgs&lt;/code&gt; as a
+submodule.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
