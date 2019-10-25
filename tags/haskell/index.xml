@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Haskell on binarin.ru</title>
+    <title>haskell on binarin.ru</title>
     <link>https://binarin.ru/tags/haskell/</link>
-    <description>Recent content in Haskell on binarin.ru</description>
+    <description>Recent content in haskell on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 17 Mar 2018 00:00:00 +0100</lastBuildDate>
@@ -21,9 +21,7 @@
 same dance after every change: recompile and restart the app, and
 then manually reload a page in a browser. This becomes tiresome
 very quickly. But with the help of &lt;code&gt;ghcid&lt;/code&gt; and with small changes
-to your Haskell code you can completely automate this process.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+to your Haskell code you can completely automate this process.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -6,10 +6,21 @@
     <description>Recent content in Posts on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Sep 2018 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 25 Oct 2019 21:43:00 +0200</lastBuildDate>
     
 	<atom:link href="https://binarin.ru/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>3D-printed legs for a clothes dryer</title>
+      <link>https://binarin.ru/post/3d-printed-dryer-legs/</link>
+      <pubDate>Fri, 25 Oct 2019 21:43:00 +0200</pubDate>
+      
+      <guid>https://binarin.ru/post/3d-printed-dryer-legs/</guid>
+      <description>&lt;p&gt;Our robotic vacuum was constanstly being stuck by trying to go over
+a clothes drying rack. So I&amp;rsquo;ve decided to raise it a bit about the
+floor, and 3D-printed some legs for it.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Fully reproducible NixOS builds</title>
@@ -22,9 +33,7 @@ full reproducibility requires a bit of effort. The minimal set of
 things needed is a &lt;code&gt;configuration.nix&lt;/code&gt; and a reference to a
 &lt;code&gt;nixpkgs&lt;/code&gt; commit. And the easiest way to achieve this is to have a
 git-repo with configuration, which also references &lt;code&gt;nixpkgs&lt;/code&gt; as a
-submodule.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+submodule.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -46,9 +55,7 @@ The thing is that a code is opened in your favorite editor, so you know everythi
       <description>&lt;p&gt;Looks like there are no normal boot manufacturers left on the
 planet. I welcome Salomon to my shit-list with their X Ultra Mid
 GTX (not sure about the exact model). Here what they look like
-after everyday use for just 8 months:&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+after everyday use for just 8 months:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -61,9 +68,7 @@ after everyday use for just 8 months:&lt;/p&gt;
 same dance after every change: recompile and restart the app, and
 then manually reload a page in a browser. This becomes tiresome
 very quickly. But with the help of &lt;code&gt;ghcid&lt;/code&gt; and with small changes
-to your Haskell code you can completely automate this process.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+to your Haskell code you can completely automate this process.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -74,8 +79,7 @@ to your Haskell code you can completely automate this process.&lt;/p&gt;
       <guid>https://binarin.ru/post/flashing-nexus-6p-checklist/</guid>
       <description>&lt;p&gt;Checklist for myself for the next time I&amp;rsquo;ll be flashing my Nexus 6P
 (because official &lt;a href=&#34;https://wiki.lineageos.org/devices/angler/install&#34;&gt;Lineage OS instructions&lt;/a&gt; are missing some
-important parts).
-&lt;/p&gt;</description>
+important parts).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -89,9 +93,7 @@ structure in JSON - with keys sorted and no additional
 whitespace. &lt;a href=&#34;https://metacpan.org/pod/JSON::XS&#34;&gt;&lt;code&gt;JSON::XS&lt;/code&gt;&lt;/a&gt; promises us that we can achieve such result
 with a &lt;code&gt;canonical&lt;/code&gt; option. It only notes that canonicalization
 doesn&amp;rsquo;t work for tied hashes. But I&amp;rsquo;ve just spent half a day
-debugging to learn that this is a bit more complicated.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+debugging to learn that this is a bit more complicated.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -101,9 +103,7 @@ debugging to learn that this is a bit more complicated.&lt;/p&gt;
       
       <guid>https://binarin.ru/post/diy-power-supply-from-aliexpress/</guid>
       <description>&lt;p&gt;Just finished soldering and assembling a &lt;a href=&#34;https://www.aliexpress.com/item/DIY-Kit-LM317-Adjustable-Regulated-Voltage-Step-down-Power-Supply-Suite-Module-Free-Shipping/32563951591.html?spm=2114.13010608.0.0.fAKrUW&#34;&gt;DIY power supply&lt;/a&gt; purchased
-from AliExpress.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+from AliExpress.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -117,9 +117,7 @@ generation of its CLI tools&lt;/a&gt;), it&amp;rsquo;s natural that one would al
 to use Elixir for writing plugins. There is a &lt;a href=&#34;https://www.rabbitmq.com/blog/2013/06/03/using-elixir-to-write-rabbitmq-plugins/&#34;&gt;blog post&lt;/a&gt; from 2013
 on that topic and most things there are still relevant - except the
 build instructions, as there was a complete revamp of build system
-in RabbitMQ. And I&amp;rsquo;m going to fill that gap.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+in RabbitMQ. And I&amp;rsquo;m going to fill that gap.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -133,9 +131,7 @@ logs that looks like this:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;=INFO REPORT==== 30-Jan-2017::19:04:04 ===
 node &#39;rabbit@192.168.155.11&#39; down: connection_closed
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

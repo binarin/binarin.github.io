@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Nixos on binarin.ru</title>
+    <title>nixos on binarin.ru</title>
     <link>https://binarin.ru/tags/nixos/</link>
-    <description>Recent content in Nixos on binarin.ru</description>
+    <description>Recent content in nixos on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 28 Sep 2018 00:00:00 +0200</lastBuildDate>
@@ -22,9 +22,7 @@ full reproducibility requires a bit of effort. The minimal set of
 things needed is a &lt;code&gt;configuration.nix&lt;/code&gt; and a reference to a
 &lt;code&gt;nixpkgs&lt;/code&gt; commit. And the easiest way to achieve this is to have a
 git-repo with configuration, which also references &lt;code&gt;nixpkgs&lt;/code&gt; as a
-submodule.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+submodule.&lt;/p&gt;</description>
     </item>
     
   </channel>

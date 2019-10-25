@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sadness on binarin.ru</title>
+    <title>sadness on binarin.ru</title>
     <link>https://binarin.ru/tags/sadness/</link>
-    <description>Recent content in Sadness on binarin.ru</description>
+    <description>Recent content in sadness on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 14 Mar 2018 00:00:00 +0100</lastBuildDate>
@@ -22,9 +22,7 @@ structure in JSON - with keys sorted and no additional
 whitespace. &lt;a href=&#34;https://metacpan.org/pod/JSON::XS&#34;&gt;&lt;code&gt;JSON::XS&lt;/code&gt;&lt;/a&gt; promises us that we can achieve such result
 with a &lt;code&gt;canonical&lt;/code&gt; option. It only notes that canonicalization
 doesn&amp;rsquo;t work for tied hashes. But I&amp;rsquo;ve just spent half a day
-debugging to learn that this is a bit more complicated.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+debugging to learn that this is a bit more complicated.&lt;/p&gt;</description>
     </item>
     
   </channel>

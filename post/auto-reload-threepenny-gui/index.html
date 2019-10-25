@@ -34,8 +34,6 @@ then manually reload a page in a browser. This becomes tiresome
 very quickly. But with the help of <code>ghcid</code> and with small changes
 to your Haskell code you can completely automate this process.</p>
 
-<p></p>
-
 <p>All commands assume the simplest project layout with all the code
 in <code>Main.hs</code>. It&rsquo;s a direct copy from <a href="https://hackage.haskell.org/package/threepenny-gui-0.8.2.2/docs/Graphics-UI-Threepenny.html">threepenny-gui documentation</a>,
 and you can clone my <a href="https://github.com/binarin/threepenny-reloading-example">example repository</a> which also adds all the
@@ -85,18 +83,18 @@ manually. With small changes to Haskell code we can automate this
 part also. Our <code>main</code> usually looks like this:</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
-  <span class="nf">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
-  <span class="nf">startGUI</span> <span class="nf">defaultConfig</span> <span class="nf">setup</span></code></pre></div>
+  <span class="n">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
+  <span class="n">startGUI</span> <span class="n">defaultConfig</span> <span class="n">setup</span></code></pre></div>
 
 <p>To achieve automatic reloading we can introduce alternative <code>main</code>
 which will be only used by <code>ghcid</code> (with the <code>-T</code> switch):</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">mainDevel</span> <span class="ow">=</span> <span class="kr">do</span>
-  <span class="nf">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
-  <span class="nf">forkIO</span> <span class="o">$</span> <span class="kr">do</span>
-      <span class="nf">threadDelay</span> <span class="mi">500000</span> <span class="c1">-- small delay so startGUI can start listening</span>
-      <span class="nf">refreshBrowserPage</span>
-  <span class="nf">startGUI</span> <span class="nf">defaultConfig</span> <span class="nf">setup</span></code></pre></div>
+  <span class="n">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
+  <span class="n">forkIO</span> <span class="o">$</span> <span class="kr">do</span>
+      <span class="n">threadDelay</span> <span class="mi">500000</span> <span class="c1">-- small delay so startGUI can start listening</span>
+      <span class="n">refreshBrowserPage</span>
+  <span class="n">startGUI</span> <span class="n">defaultConfig</span> <span class="n">setup</span></code></pre></div>
 
 <p>Now you need to come up with <code>refreshBrowserPage</code> for the system
 where you do development. Below you can see the dumbest
@@ -120,18 +118,18 @@ hotkey (<code>Ctrl-R</code>) to each of them.</p>
 
 <span class="nf">refreshBrowserPage</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
 <span class="nf">refreshBrowserPage</span> <span class="ow">=</span> <span class="kr">do</span>
-    <span class="nf">maybeWindows</span> <span class="ow">::</span> <span class="kt">Either</span> <span class="kt">SomeException</span> <span class="kt">String</span> <span class="ow">&lt;-</span> <span class="nf">try</span>
-      <span class="p">(</span><span class="nf">readProcess</span> <span class="s">&#34;xdotool&#34;</span>
+    <span class="n">maybeWindows</span> <span class="ow">::</span> <span class="kt">Either</span> <span class="kt">SomeException</span> <span class="kt">String</span> <span class="ow">&lt;-</span> <span class="n">try</span>
+      <span class="p">(</span><span class="n">readProcess</span> <span class="s">&#34;xdotool&#34;</span>
         <span class="p">[</span><span class="s">&#34;search&#34;</span><span class="p">,</span> <span class="s">&#34;--all&#34;</span><span class="p">,</span> <span class="s">&#34;--name&#34;</span><span class="p">,</span> <span class="s">&#34;Problem loading&#34;</span><span class="p">]</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-    <span class="kr">case</span> <span class="nf">maybeWindows</span> <span class="kr">of</span>
-      <span class="kt">Left</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="nf">return</span> <span class="nb">()</span>
-      <span class="kt">Right</span> <span class="nf">idStr</span> <span class="ow">-&gt;</span> <span class="nf">forM_</span> <span class="p">(</span><span class="nf">lines</span> <span class="nf">idStr</span><span class="p">)</span> <span class="o">$</span> <span class="nf">\windowId</span> <span class="ow">-&gt;</span>
-        <span class="kr">case</span> <span class="nf">readMaybe</span> <span class="nf">windowId</span> <span class="kr">of</span>
-          <span class="kt">Nothing</span> <span class="ow">-&gt;</span> <span class="nf">return</span> <span class="nb">()</span>
-          <span class="kt">Just</span> <span class="p">(</span><span class="nf">n</span> <span class="ow">::</span> <span class="kt">Integer</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kr">do</span>
-              <span class="nf">putStrLn</span> <span class="o">$</span> <span class="nf">show</span> <span class="nf">n</span>
-              <span class="nf">callProcess</span> <span class="s">&#34;xdotool&#34;</span> <span class="p">[</span><span class="s">&#34;key&#34;</span><span class="p">,</span> <span class="s">&#34;--window&#34;</span><span class="p">,</span> <span class="nf">show</span> <span class="nf">n</span><span class="p">,</span> <span class="s">&#34;CTRL+R&#34;</span><span class="p">]</span>
-              <span class="nf">return</span> <span class="nb">()</span></code></pre></div>
+    <span class="kr">case</span> <span class="n">maybeWindows</span> <span class="kr">of</span>
+      <span class="kt">Left</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">return</span> <span class="nb">()</span>
+      <span class="kt">Right</span> <span class="n">idStr</span> <span class="ow">-&gt;</span> <span class="n">forM_</span> <span class="p">(</span><span class="n">lines</span> <span class="n">idStr</span><span class="p">)</span> <span class="o">$</span> <span class="nf">\</span><span class="n">windowId</span> <span class="ow">-&gt;</span>
+        <span class="kr">case</span> <span class="n">readMaybe</span> <span class="n">windowId</span> <span class="kr">of</span>
+          <span class="kt">Nothing</span> <span class="ow">-&gt;</span> <span class="n">return</span> <span class="nb">()</span>
+          <span class="kt">Just</span> <span class="p">(</span><span class="n">n</span> <span class="ow">::</span> <span class="kt">Integer</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kr">do</span>
+              <span class="n">putStrLn</span> <span class="o">$</span> <span class="n">show</span> <span class="n">n</span>
+              <span class="n">callProcess</span> <span class="s">&#34;xdotool&#34;</span> <span class="p">[</span><span class="s">&#34;key&#34;</span><span class="p">,</span> <span class="s">&#34;--window&#34;</span><span class="p">,</span> <span class="n">show</span> <span class="n">n</span><span class="p">,</span> <span class="s">&#34;CTRL+R&#34;</span><span class="p">]</span>
+              <span class="n">return</span> <span class="nb">()</span></code></pre></div>
 
 <p>And this is all that&rsquo;s needed to see your changes in browser
 almost immediately after you save an edited file.</p>

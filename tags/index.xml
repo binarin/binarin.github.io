@@ -6,67 +6,40 @@
     <description>Recent content in Tags on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Mar 2018 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 25 Oct 2019 21:43:00 +0200</lastBuildDate>
     
 	<atom:link href="https://binarin.ru/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Android</title>
-      <link>https://binarin.ru/tags/android/</link>
-      <pubDate>Thu, 15 Mar 2018 00:00:00 +0100</pubDate>
+      <title>3d-printing</title>
+      <link>https://binarin.ru/tags/3d-printing/</link>
+      <pubDate>Fri, 25 Oct 2019 21:43:00 +0200</pubDate>
       
-      <guid>https://binarin.ru/tags/android/</guid>
+      <guid>https://binarin.ru/tags/3d-printing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Boots of Shame</title>
-      <link>https://binarin.ru/tags/boots-of-shame/</link>
-      <pubDate>Sun, 18 Mar 2018 00:00:00 +0100</pubDate>
+      <title>diy</title>
+      <link>https://binarin.ru/tags/diy/</link>
+      <pubDate>Fri, 25 Oct 2019 21:43:00 +0200</pubDate>
       
-      <guid>https://binarin.ru/tags/boots-of-shame/</guid>
+      <guid>https://binarin.ru/tags/diy/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Electronics</title>
-      <link>https://binarin.ru/tags/electronics/</link>
-      <pubDate>Sun, 14 May 2017 00:00:00 +0200</pubDate>
+      <title>home-improvement</title>
+      <link>https://binarin.ru/tags/home-improvement/</link>
+      <pubDate>Fri, 25 Oct 2019 21:43:00 +0200</pubDate>
       
-      <guid>https://binarin.ru/tags/electronics/</guid>
+      <guid>https://binarin.ru/tags/home-improvement/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Emacs</title>
-      <link>https://binarin.ru/tags/emacs/</link>
-      <pubDate>Mon, 23 Jul 2018 00:00:00 +0200</pubDate>
-      
-      <guid>https://binarin.ru/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gui</title>
-      <link>https://binarin.ru/tags/gui/</link>
-      <pubDate>Sat, 17 Mar 2018 00:00:00 +0100</pubDate>
-      
-      <guid>https://binarin.ru/tags/gui/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Haskell</title>
-      <link>https://binarin.ru/tags/haskell/</link>
-      <pubDate>Sat, 17 Mar 2018 00:00:00 +0100</pubDate>
-      
-      <guid>https://binarin.ru/tags/haskell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nix</title>
+      <title>nix</title>
       <link>https://binarin.ru/tags/nix/</link>
       <pubDate>Fri, 28 Sep 2018 00:00:00 +0200</pubDate>
       
@@ -75,7 +48,7 @@
     </item>
     
     <item>
-      <title>Nixos</title>
+      <title>nixos</title>
       <link>https://binarin.ru/tags/nixos/</link>
       <pubDate>Fri, 28 Sep 2018 00:00:00 +0200</pubDate>
       
@@ -84,7 +57,52 @@
     </item>
     
     <item>
-      <title>Notes</title>
+      <title>emacs</title>
+      <link>https://binarin.ru/tags/emacs/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://binarin.ru/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>boots-of-shame</title>
+      <link>https://binarin.ru/tags/boots-of-shame/</link>
+      <pubDate>Sun, 18 Mar 2018 00:00:00 +0100</pubDate>
+      
+      <guid>https://binarin.ru/tags/boots-of-shame/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gui</title>
+      <link>https://binarin.ru/tags/gui/</link>
+      <pubDate>Sat, 17 Mar 2018 00:00:00 +0100</pubDate>
+      
+      <guid>https://binarin.ru/tags/gui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>haskell</title>
+      <link>https://binarin.ru/tags/haskell/</link>
+      <pubDate>Sat, 17 Mar 2018 00:00:00 +0100</pubDate>
+      
+      <guid>https://binarin.ru/tags/haskell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>https://binarin.ru/tags/android/</link>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0100</pubDate>
+      
+      <guid>https://binarin.ru/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>notes</title>
       <link>https://binarin.ru/tags/notes/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0100</pubDate>
       
@@ -93,7 +111,7 @@
     </item>
     
     <item>
-      <title>Perl</title>
+      <title>perl</title>
       <link>https://binarin.ru/tags/perl/</link>
       <pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate>
       
@@ -102,20 +120,29 @@
     </item>
     
     <item>
-      <title>Rabbitmq</title>
-      <link>https://binarin.ru/tags/rabbitmq/</link>
-      <pubDate>Wed, 19 Apr 2017 00:00:00 +0200</pubDate>
-      
-      <guid>https://binarin.ru/tags/rabbitmq/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sadness</title>
+      <title>sadness</title>
       <link>https://binarin.ru/tags/sadness/</link>
       <pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate>
       
       <guid>https://binarin.ru/tags/sadness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>electronics</title>
+      <link>https://binarin.ru/tags/electronics/</link>
+      <pubDate>Sun, 14 May 2017 00:00:00 +0200</pubDate>
+      
+      <guid>https://binarin.ru/tags/electronics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rabbitmq</title>
+      <link>https://binarin.ru/tags/rabbitmq/</link>
+      <pubDate>Wed, 19 Apr 2017 00:00:00 +0200</pubDate>
+      
+      <guid>https://binarin.ru/tags/rabbitmq/</guid>
       <description></description>
     </item>
     

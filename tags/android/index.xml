@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Android on binarin.ru</title>
+    <title>android on binarin.ru</title>
     <link>https://binarin.ru/tags/android/</link>
-    <description>Recent content in Android on binarin.ru</description>
+    <description>Recent content in android on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 15 Mar 2018 00:00:00 +0100</lastBuildDate>
@@ -19,8 +19,7 @@
       <guid>https://binarin.ru/post/flashing-nexus-6p-checklist/</guid>
       <description>&lt;p&gt;Checklist for myself for the next time I&amp;rsquo;ll be flashing my Nexus 6P
 (because official &lt;a href=&#34;https://wiki.lineageos.org/devices/angler/install&#34;&gt;Lineage OS instructions&lt;/a&gt; are missing some
-important parts).
-&lt;/p&gt;</description>
+important parts).&lt;/p&gt;</description>
     </item>
     
   </channel>

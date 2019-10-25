@@ -35,8 +35,6 @@ things needed is a <code>configuration.nix</code> and a reference to a
 git-repo with configuration, which also references <code>nixpkgs</code> as a
 submodule.</p>
 
-<p></p>
-
 <p>Let&rsquo;s change an existing configuration that way.</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /etc/nixos
@@ -46,9 +44,9 @@ git add *.nix
 git commit -m <span class="s2">&#34;Import config&#34;</span>
 git submodule add https://github.com/NixOS/nixpkgs
 
-<span class="c1"># Or a branch like nixos-18.03 from
-</span><span class="c1"># https://github.com/nixos/nixpkgs-channels to use stable version,
-</span><span class="c1"></span># with most of the things available from binary cache.</code></pre></div>
+<span class="c1"># Or a branch like nixos-18.03 from</span>
+<span class="c1"># https://github.com/nixos/nixpkgs-channels to use stable version,</span>
+<span class="c1"># with most of the things available from binary cache.</span></code></pre></div>
 
 <p>Now we need to tell <code>nix</code> that we want to use our own checkout of
 <code>nixpkgs</code> instead of channels. This can be achieved by adding an
@@ -110,8 +108,8 @@ another directory, and maybe even on another server) and do <code>nix
    build</code> command from above, we should finally see exactly the same
 store path:</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix build ... <span class="c1"># as above
-</span><span class="c1"></span>ls -la result</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix build ... <span class="c1"># as above</span>
+ls -la result</code></pre></div>
 <div class="footnotes">
 
 <hr />

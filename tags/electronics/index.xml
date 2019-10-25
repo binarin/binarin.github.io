@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Electronics on binarin.ru</title>
+    <title>electronics on binarin.ru</title>
     <link>https://binarin.ru/tags/electronics/</link>
-    <description>Recent content in Electronics on binarin.ru</description>
+    <description>Recent content in electronics on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 14 May 2017 00:00:00 +0200</lastBuildDate>
@@ -18,9 +18,7 @@
       
       <guid>https://binarin.ru/post/diy-power-supply-from-aliexpress/</guid>
       <description>&lt;p&gt;Just finished soldering and assembling a &lt;a href=&#34;https://www.aliexpress.com/item/DIY-Kit-LM317-Adjustable-Regulated-Voltage-Step-down-Power-Supply-Suite-Module-Free-Shipping/32563951591.html?spm=2114.13010608.0.0.fAKrUW&#34;&gt;DIY power supply&lt;/a&gt; purchased
-from AliExpress.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+from AliExpress.&lt;/p&gt;</description>
     </item>
     
   </channel>

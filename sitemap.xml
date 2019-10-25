@@ -3,8 +3,58 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://binarin.ru/post/3d-printed-dryer-legs/</loc>
+    <lastmod>2019-10-25T21:43:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/3d-printing/</loc>
+    <lastmod>2019-10-25T21:43:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/</loc>
+    <lastmod>2019-10-25T21:43:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/diy/</loc>
+    <lastmod>2019-10-25T21:43:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/home-improvement/</loc>
+    <lastmod>2019-10-25T21:43:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/post/</loc>
+    <lastmod>2019-10-25T21:43:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/</loc>
+    <lastmod>2019-10-25T21:43:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://binarin.ru/post/truly-reproducible-nixos/</loc>
     <lastmod>2018-09-28T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/nix/</loc>
+    <lastmod>2018-09-28T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/nixos/</loc>
+    <lastmod>2018-09-28T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/emacs/</loc>
+    <lastmod>2018-07-23T00:00:00+02:00</lastmod>
   </url>
   
   <url>
@@ -13,8 +63,18 @@
   </url>
   
   <url>
+    <loc>https://binarin.ru/page/</loc>
+    <lastmod>2018-04-18T16:55:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://binarin.ru/page/wishlist/</loc>
     <lastmod>2018-04-18T16:55:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/boots-of-shame/</loc>
+    <lastmod>2018-03-18T00:00:00+01:00</lastmod>
   </url>
   
   <url>
@@ -28,8 +88,33 @@
   </url>
   
   <url>
+    <loc>https://binarin.ru/tags/gui/</loc>
+    <lastmod>2018-03-17T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/haskell/</loc>
+    <lastmod>2018-03-17T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/android/</loc>
+    <lastmod>2018-03-15T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/notes/</loc>
+    <lastmod>2018-03-15T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://binarin.ru/post/flashing-nexus-6p-checklist/</loc>
     <lastmod>2018-03-15T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/perl/</loc>
+    <lastmod>2018-03-14T00:00:00+01:00</lastmod>
   </url>
   
   <url>
@@ -38,8 +123,23 @@
   </url>
   
   <url>
+    <loc>https://binarin.ru/tags/sadness/</loc>
+    <lastmod>2018-03-14T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://binarin.ru/post/diy-power-supply-from-aliexpress/</loc>
     <lastmod>2017-05-14T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/electronics/</loc>
+    <lastmod>2017-05-14T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://binarin.ru/tags/rabbitmq/</loc>
+    <lastmod>2017-04-19T00:00:00+02:00</lastmod>
   </url>
   
   <url>
@@ -61,20 +161,7 @@
   </url>
   
   <url>
-    <loc>https://binarin.ru/tags/android/</loc>
-    <lastmod>2018-03-15T00:00:00+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/boots-of-shame/</loc>
-    <lastmod>2018-03-18T00:00:00+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://binarin.ru/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -82,31 +169,7 @@
   </url>
   
   <url>
-    <loc>https://binarin.ru/tags/electronics/</loc>
-    <lastmod>2017-05-14T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/emacs/</loc>
-    <lastmod>2018-07-23T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://binarin.ru/recipe/flourless-avocado-brownies/</loc>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/gui/</loc>
-    <lastmod>2018-03-17T00:00:00+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/haskell/</loc>
-    <lastmod>2018-03-17T00:00:00+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -118,68 +181,7 @@
   </url>
   
   <url>
-    <loc>https://binarin.ru/tags/nix/</loc>
-    <lastmod>2018-09-28T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/nixos/</loc>
-    <lastmod>2018-09-28T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/notes/</loc>
-    <lastmod>2018-03-15T00:00:00+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/page/</loc>
-    <lastmod>2018-04-18T16:55:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/perl/</loc>
-    <lastmod>2018-03-14T00:00:00+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/post/</loc>
-    <lastmod>2018-09-28T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/rabbitmq/</loc>
-    <lastmod>2017-04-19T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://binarin.ru/recipe/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/sadness/</loc>
-    <lastmod>2018-03-14T00:00:00+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/tags/</loc>
-    <lastmod>2018-03-15T00:00:00+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://binarin.ru/</loc>
-    <lastmod>2018-09-28T00:00:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>
