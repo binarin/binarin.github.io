@@ -1,4 +1,4 @@
-{{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+{{ $paginator := .Paginate (where .Pages "Type" "post") }}
 
 <div class="post-list">
     <div class="post-list__posts">

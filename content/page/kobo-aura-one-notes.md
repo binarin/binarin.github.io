@@ -10,7 +10,7 @@ draft = false
 -   Put `KoboRoot.tgz` into `.kobo` folder
 -   Install update from KSM
 -   Enable usbnet, do smth like `sudo ifconfig enp0s20u1u1
-          192.168.2.100/29 up`
+            192.168.2.100/29 up`
 -   `telnet 192.168.2.101` and use `root` for login
 
 
