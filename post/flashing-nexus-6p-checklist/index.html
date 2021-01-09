@@ -31,19 +31,18 @@ Notes about installing Lineage OS on Nexus 6P
     <p>Checklist for myself for the next time I&rsquo;ll be flashing my Nexus 6P
 (because official <a href="https://wiki.lineageos.org/devices/angler/install">Lineage OS instructions</a> are missing some
 important parts).</p>
-
 <ul>
 <li>Install latest TWRP (from within itself if present, using
 fastboot otherwise)</li>
 <li>Download proper version (look on XDA) of <a href="https://developers.google.com/android/images">factory image</a>. We&rsquo;ll
 need vendor, radio and bootloader images from there</li>
 <li>Download and put on the device
-
 <ul>
 <li>Lineage OS .zip</li>
 <li>gapps for arm64 .zip</li>
 <li>some su .zip</li>
-</ul></li>
+</ul>
+</li>
 <li>Reboot into the bootloader (Power + VolumeDown), attach USB cable
 and use <code>fastboot</code> to flash vendor, radio, bootloader. And maybe
 TWRP, if not already latest. You need to reboot bootloader
@@ -51,12 +50,12 @@ between each step. Running <code>fastboot</code> can require <code>sudo</code>. 
 commands can be found in shell files inside a factory image. Pay
 attention to a <code>fastboot</code> version check here (if present)</li>
 <li>Follow official instructions from that point
-
 <ul>
 <li>Wipe System, Cache, Data</li>
 <li>Queue 3 .zips</li>
 <li>Flash</li>
-</ul></li>
+</ul>
+</li>
 </ul>
     <div class="post__tags">
         Tags:

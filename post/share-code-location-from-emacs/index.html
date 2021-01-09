@@ -32,16 +32,13 @@ Sharing code position from emacs
 somebody. Maybe you&rsquo;ve just shown them something and want to follow
 up with an IM message. Or you want to add something to a bug
 tracker issue.</p>
-
 <p>The thing is that a code is opened in your favorite
 editor, so you know everything about a commit, a file and a line
 number. But to share a link you need to go to some kind of a web
 git UI and search for exact same things there.</p>
-
 <p>That&rsquo;s why I&rsquo;ve made a small helper function for emacs that tries
 to guess a correct web UI from a git remote, and points a browser
 to an exact location where the cursor in emacs currently is:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="c1">;; this depends on:</span>
 <span class="c1">;; - s.el</span>
 <span class="c1">;; - dash.el</span>

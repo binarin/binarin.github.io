@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on binarin.ru</title>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 18 Apr 2018 16:55:00 +0200</pubDate>
       
       <guid>https://binarin.ru/page/wishlist/</guid>
-      <description> Line 6 G10 wireless guitar system Prusa i3 MK3 multi-material upgrade kit Some big Dremel 4000 kit Flir tg165 Miter saw like Makita LS1216L  </description>
+      <description> Line 6 G10 wireless guitar system Prusa i3 MK3 multi-material upgrade kit Flir tg165 Miter saw like Makita LS1216L   </description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/page/kobo-aura-one-notes/</guid>
-      <description>Activating and using telnet  Get zip here Put KoboRoot.tgz into .kobo folder Install update from KSM Enable usbnet, do smth like sudo ifconfig enp0s20u1u1 192.168.2.100/29 up telnet 192.168.2.101 and use root for login  Known problems  Dictionary lookup not working - use sdcv from that issue Evernote plugin crashing - copy .so-file per instruction I needed to delete .adds/koreader folder before upgrade, despite being said otherwise in readme.</description>
+      <description>Activating and using telnet  Get zip here Put KoboRoot.tgz into .kobo folder Install update from KSM Enable usbnet, do smth like sudo ifconfig enp0s20u1u1 192.168.2.100/29 up telnet 192.168.2.101 and use root for login  Known problems  Dictionary lookup not working - use sdcv from that issue Evernote plugin crashing - copy .so-file per instruction I needed to delete .adds/koreader folder before upgrade, despite being said otherwise in readme. It started to crash while turning wi-fi on/off.</description>
     </item>
     
   </channel>

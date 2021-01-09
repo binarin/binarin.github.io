@@ -34,9 +34,7 @@ things needed is a <code>configuration.nix</code> and a reference to a
 <code>nixpkgs</code> commit. And the easiest way to achieve this is to have a
 git-repo with configuration, which also references <code>nixpkgs</code> as a
 submodule.</p>
-
 <p>Let&rsquo;s change an existing configuration that way.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /etc/nixos
 git init
 git commit -m Initial --allow-empty
@@ -47,41 +45,32 @@ git submodule add https://github.com/NixOS/nixpkgs
 <span class="c1"># Or a branch like nixos-18.03 from</span>
 <span class="c1"># https://github.com/nixos/nixpkgs-channels to use stable version,</span>
 <span class="c1"># with most of the things available from binary cache.</span></code></pre></div>
-
 <p>Now we need to tell <code>nix</code> that we want to use our own checkout of
 <code>nixpkgs</code> instead of channels. This can be achieved by adding an
 option to <code>configuration.nix</code>:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-nix" data-lang="nix"><span class="n">nix</span><span class="o">.</span><span class="n">nixPath</span> <span class="err">=</span> <span class="p">[</span>
   <span class="s2">&#34;nixpkgs=/etc/nixos/nixpkgs&#34;</span>
   <span class="s2">&#34;nixos-config=/etc/nixos/configuration.nix&#34;</span>
 <span class="p">];</span></code></pre></div>
-
-<p>After issuing <code>nixos-rebuild switch</code> twice&nbsp;<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup>
+<p>After issuing <code>nixos-rebuild switch</code> twice <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
 your own checkout of <code>nixpkgs</code> will be finally used.</p>
-
 <p>But what if you want to build exactly the same configuration on
 some other machine, like when doing CI? The manpage (and
 source-code) of <code>nixos-rebuild</code> suggests that we can do it that
 way:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix build -f <span class="s1">&#39;&lt;nixpkgs/nixos&gt;&#39;</span> system <span class="se">\
 </span><span class="se"></span>    -I <span class="nv">nixpkgs</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/nixpkgs <span class="se">\
 </span><span class="se"></span>    -I nixos-config<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/configuration.nix</code></pre></div>
-
 <p>And it will indeed work if we&rsquo;ll build it exactly from the same
 directory on disk (i.e. <code>/etc/nixos</code>). Sadly trying to build the same
 thing from another directory will produce different path in <code>/nix/store/</code>.</p>
-
 <p>After a bit of digging I found out that difference is in how full
 nixpkgs version is determined (it includes a git commit, and is a
 bit flaky because it tries to parse a commit in pure nix). This is
 later used both as a part of derivation name, and inside some files
 like <code>/etc/os-release</code>.</p>
-
 <p>It&rsquo;s possible to override those auto-detected values with a
 following configuration snippet:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-nix" data-lang="nix"><span class="p">{</span><span class="n">pkgs</span><span class="o">,</span> <span class="n">lib</span><span class="o">,</span> <span class="o">...</span><span class="p">}:</span>
 
 <span class="k">let</span>
@@ -91,34 +80,27 @@ following configuration snippet:</p>
   <span class="n">system</span><span class="o">.</span><span class="n">nixos</span><span class="o">.</span><span class="n">versionSuffix</span> <span class="o">=</span> <span class="s2">&#34;-my-name-</span><span class="si">${</span><span class="n">gitCommitId</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span>
   <span class="n">system</span><span class="o">.</span><span class="n">nixos</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&#34;my-name-</span><span class="si">${</span><span class="n">gitCommitId</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span>
 <span class="p">}</span></code></pre></div>
-
 <p>It&rsquo;s 2 options that need to be set, and it&rsquo;s even more useful when
 done as shown above: derivation name and <code>/etc/os-release</code> will
 contain reference both to an exact version of <code>configuration.nix</code> and
 of an <code>nixpkgs</code> commit (as they&rsquo;re both taken into account for
 configuration repository commit id calculation).</p>
-
 <p>So now we can commit everything, do <code>nixos-rebuild switch</code> and take
 a note of what exactly was built:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">readlink -f /run/current-system</code></pre></div>
-
 <p>If we checkout our configuration repo somewhere else (at least in
-another directory, and maybe even on another server) and do <code>nix
-   build</code> command from above, we should finally see exactly the same
+another directory, and maybe even on another server) and do <code>nix build</code> command from above, we should finally see exactly the same
 store path:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nix build ... <span class="c1"># as above</span>
 ls -la result</code></pre></div>
-<div class="footnotes">
-
-<hr />
-
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:fn-1">first time just to change the path, second time to really use your own <code>nixpkgs</code>
- <a class="footnote-return" href="#fnref:fn-1"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p>first time just to change the path, second time to really use your own <code>nixpkgs</code> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
     <div class="post__tags">
         Tags:
         

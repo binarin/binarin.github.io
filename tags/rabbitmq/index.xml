@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rabbitmq on binarin.ru</title>
@@ -33,10 +33,9 @@ in RabbitMQ. And I&amp;rsquo;m going to fill that gap.&lt;/p&gt;</description>
       <guid>https://binarin.ru/post/rabbitmq-net-split-explanations/</guid>
       <description>&lt;p&gt;After experiencing a network problem RabbitMQ writes a record to
 logs that looks like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;=INFO REPORT==== 30-Jan-2017::19:04:04 ===
-node &#39;rabbit@192.168.155.11&#39; down: connection_closed
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;=INFO REPORT==== 30-Jan-2017::19:04:04 ===
+node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

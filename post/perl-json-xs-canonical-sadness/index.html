@@ -34,10 +34,8 @@ whitespace. <a href="https://metacpan.org/pod/JSON::XS"><code>JSON::XS</code></a
 with a <code>canonical</code> option. It only notes that canonicalization
 doesn&rsquo;t work for tied hashes. But I&rsquo;ve just spent half a day
 debugging to learn that this is a bit more complicated.</p>
-
 <p>To my complete surprise the following script fails most of the
 time:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="k">use</span> <span class="nn">Data::Printer</span><span class="p">;</span>
 <span class="k">use</span> <span class="nn">JSON::XS</span><span class="p">;</span>
 <span class="k">use</span> <span class="nn">Test::More</span> <span class="p">(</span><span class="n">tests</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">);</span>
@@ -46,14 +44,11 @@ time:</p>
 <span class="n">p</span> <span class="nv">$data</span><span class="p">;</span>
 <span class="k">my</span> <span class="nv">$post</span> <span class="o">=</span> <span class="nn">JSON::XS</span><span class="o">-&gt;</span><span class="k">new</span><span class="o">-&gt;</span><span class="nn">utf8</span><span class="o">-&gt;</span><span class="n">canonical</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 <span class="n">is</span> <span class="nv">$post</span><span class="p">,</span> <span class="nv">$pre</span><span class="p">;</span></code></pre></div>
-
 <p>Turns out this is a problem known for 3 years with both
 <a href="https://github.com/garu/Data-Printer/issues/75">Data::Printer</a> and <code>JSON::XS</code> - both unfixed, except for a fork at
 <a href="https://github.com/rurban/Cpanel-JSON-XS/pull/42">Cpanel-JSON-XS</a>.</p>
-
 <p>The thing is that even when you aren&rsquo;t using <code>Data::Printer</code>,
 somebody can still break your canonical JSON representation.</p>
-
 <p>I think I&rsquo;ll just switch to <code>Cpanel::JSON::XS</code>, there is <a href="https://metacpan.org/source/MLEHMANN/JSON-XS-3.04/XS.xs#L658">too much
 drama</a> about hash key randomization in <code>JSON::XS</code>.</p>
     <div class="post__tags">
