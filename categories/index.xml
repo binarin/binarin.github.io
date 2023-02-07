@@ -5,10 +5,6 @@
     <link>https://binarin.ru/categories/</link>
     <description>Recent content in Categories on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://binarin.ru/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://binarin.ru/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

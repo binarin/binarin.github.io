@@ -6,11 +6,7 @@
     <description>Recent content in emacs on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://binarin.ru/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 +0200</lastBuildDate><atom:link href="https://binarin.ru/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sharing code position from emacs</title>
       <link>https://binarin.ru/post/share-code-location-from-emacs/</link>

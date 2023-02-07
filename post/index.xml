@@ -6,11 +6,7 @@
     <description>Recent content in Posts on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Nov 2019 17:40:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://binarin.ru/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 08 Nov 2019 17:40:00 +0100</lastBuildDate><atom:link href="https://binarin.ru/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>3D-printed legs for a nightstand</title>
       <link>https://binarin.ru/post/3d-printed-legs-for-bed-stand/</link>
@@ -85,7 +81,7 @@ to your Haskell code you can completely automate this process.&lt;/p&gt;</descri
     <item>
       <title>Notes about installing Lineage OS on Nexus 6P</title>
       <link>https://binarin.ru/post/flashing-nexus-6p-checklist/</link>
-      <pubDate>Thu, 15 Mar 2018 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/flashing-nexus-6p-checklist/</guid>
       <description>&lt;p&gt;Checklist for myself for the next time I&amp;rsquo;ll be flashing my Nexus 6P
@@ -96,7 +92,7 @@ important parts).&lt;/p&gt;</description>
     <item>
       <title>Perl `JSON::XS` can produce un-canonical JSON</title>
       <link>https://binarin.ru/post/perl-json-xs-canonical-sadness/</link>
-      <pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/perl-json-xs-canonical-sadness/</guid>
       <description>&lt;p&gt;Sometimes you want to produce a canonical version of a data
@@ -110,7 +106,7 @@ debugging to learn that this is a bit more complicated.&lt;/p&gt;</description>
     <item>
       <title>DIY power supply from AliExpress</title>
       <link>https://binarin.ru/post/diy-power-supply-from-aliexpress/</link>
-      <pubDate>Sun, 14 May 2017 00:00:00 +0200</pubDate>
+      <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/diy-power-supply-from-aliexpress/</guid>
       <description>&lt;p&gt;Just finished soldering and assembling a &lt;a href=&#34;https://www.aliexpress.com/item/DIY-Kit-LM317-Adjustable-Regulated-Voltage-Step-down-Power-Supply-Suite-Module-Free-Shipping/32563951591.html?spm=2114.13010608.0.0.fAKrUW&#34;&gt;DIY power supply&lt;/a&gt; purchased
@@ -120,7 +116,7 @@ from AliExpress.&lt;/p&gt;</description>
     <item>
       <title>RabbitMQ plugins in Elixir</title>
       <link>https://binarin.ru/post/rabbitmq-plugins-in-elixir/</link>
-      <pubDate>Wed, 19 Apr 2017 00:00:00 +0200</pubDate>
+      <pubDate>Wed, 19 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/rabbitmq-plugins-in-elixir/</guid>
       <description>&lt;p&gt;As RabbitMQ is gradually adopting Elixir (i.e. for &lt;a href=&#34;https://github.com/rabbitmq/rabbitmq-cli&#34;&gt;the next
@@ -134,14 +130,14 @@ in RabbitMQ. And I&amp;rsquo;m going to fill that gap.&lt;/p&gt;</description>
     <item>
       <title>RabbitMQ net-split messages explanation</title>
       <link>https://binarin.ru/post/rabbitmq-net-split-explanations/</link>
-      <pubDate>Mon, 30 Jan 2017 00:00:00 +0100</pubDate>
+      <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/rabbitmq-net-split-explanations/</guid>
       <description>&lt;p&gt;After experiencing a network problem RabbitMQ writes a record to
 logs that looks like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;=INFO REPORT==== 30-Jan-2017::19:04:04 ===
-node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=INFO REPORT==== 30-Jan-2017::19:04:04 ===
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

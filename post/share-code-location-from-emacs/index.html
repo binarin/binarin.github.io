@@ -39,43 +39,43 @@ git UI and search for exact same things there.</p>
 <p>That&rsquo;s why I&rsquo;ve made a small helper function for emacs that tries
 to guess a correct web UI from a git remote, and points a browser
 to an exact location where the cursor in emacs currently is:</p>
-<div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="c1">;; this depends on:</span>
-<span class="c1">;; - s.el</span>
-<span class="c1">;; - dash.el</span>
-<span class="c1">;; - anaphora</span>
-<span class="c1">;; - magit</span>
-<span class="c1">;; - projectile</span>
-
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/open-web-link-to-source-code</span> <span class="p">()</span>
-  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
-  <span class="p">(</span><span class="nv">aif</span> <span class="p">(</span><span class="nb">block</span> <span class="nb">loop</span>
-           <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">url</span> <span class="p">(</span><span class="nv">binarin/get-git-remote-urls</span><span class="p">))</span>
-             <span class="p">(</span><span class="nv">anaphoric-cond</span>
-              <span class="p">((</span><span class="nv">s-match</span> <span class="s">&#34;\\(gitlab\\.[^:]+\\):\\(.*\\)\\.git&#34;</span> <span class="nv">url</span><span class="p">)</span>
-               <span class="p">(</span><span class="nb">return</span> <span class="p">(</span><span class="nv">binarin/make-gitlab-link</span> <span class="p">(</span><span class="nf">nth</span> <span class="mi">1</span> <span class="nv">it</span><span class="p">)</span> <span class="p">(</span><span class="nf">nth</span> <span class="mi">2</span> <span class="nv">it</span><span class="p">)))))))</span>
-      <span class="p">(</span><span class="nv">browse-url</span> <span class="nv">it</span><span class="p">)</span>
-    <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Failed to generate a link from that file&#34;</span><span class="p">)))</span>
-
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/get-git-remote-urls</span> <span class="p">()</span>
-  <span class="p">(</span><span class="nb">with-temp-buffer</span>
-    <span class="p">(</span><span class="nv">magit-git-insert</span> <span class="s">&#34;remote&#34;</span> <span class="s">&#34;-v&#34;</span><span class="p">)</span>
-    <span class="p">(</span><span class="nv">-remove</span> <span class="nf">#&#39;null</span>
-             <span class="p">(</span><span class="nv">-map</span> <span class="nf">#&#39;</span><span class="p">(</span><span class="nb">lambda</span> <span class="p">(</span><span class="nv">a</span><span class="p">)</span>
-                       <span class="p">(</span><span class="nf">nth</span> <span class="mi">1</span> <span class="p">(</span><span class="nv">s-split</span> <span class="s">&#34;[ \t]+&#34;</span> <span class="nv">a</span><span class="p">)))</span>
-                   <span class="p">(</span><span class="nv">s-lines</span> <span class="p">(</span><span class="nf">buffer-string</span><span class="p">))))))</span>
-
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/get-head-commit-sha</span> <span class="p">()</span>
-  <span class="p">(</span><span class="nb">with-temp-buffer</span>
-    <span class="p">(</span><span class="nv">magit-git-insert</span> <span class="s">&#34;rev-parse&#34;</span> <span class="s">&#34;HEAD&#34;</span><span class="p">)</span>
-    <span class="p">(</span><span class="nv">s-trim</span> <span class="p">(</span><span class="nf">buffer-string</span><span class="p">))))</span>
-
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/make-gitlab-link</span> <span class="p">(</span><span class="nv">base</span> <span class="nv">project</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">commit-sha</span> <span class="p">(</span><span class="nv">binarin/get-head-commit-sha</span><span class="p">))</span>
-        <span class="p">(</span><span class="nv">filename-relative</span>
-         <span class="p">(</span><span class="nf">car</span> <span class="p">(</span><span class="nv">projectile-make-relative-to-root</span> <span class="p">(</span><span class="nf">list</span> <span class="p">(</span><span class="nf">buffer-file-name</span><span class="p">)))))</span>
-        <span class="p">(</span><span class="nv">line-number</span> <span class="p">(</span><span class="nf">string-to-number</span> <span class="p">(</span><span class="nf">format-mode-line</span> <span class="s">&#34;%l&#34;</span><span class="p">))))</span>
-    <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;https://%s/%s/blob/%s/%s#L%d&#34;</span>
-            <span class="nv">base</span> <span class="nv">project</span> <span class="nv">commit-sha</span> <span class="nv">filename-relative</span> <span class="nv">line-number</span><span class="p">)))</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="c1">;; this depends on:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; - s.el</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; - dash.el</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; - anaphora</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; - magit</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; - projectile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/open-web-link-to-source-code</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">aif</span> <span class="p">(</span><span class="nb">block</span> <span class="nb">loop</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">url</span> <span class="p">(</span><span class="nv">binarin/get-git-remote-urls</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nv">anaphoric-cond</span>
+</span></span><span class="line"><span class="cl">              <span class="p">((</span><span class="nv">s-match</span> <span class="s">&#34;\\(gitlab\\.[^:]+\\):\\(.*\\)\\.git&#34;</span> <span class="nv">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="nb">return</span> <span class="p">(</span><span class="nv">binarin/make-gitlab-link</span> <span class="p">(</span><span class="nf">nth</span> <span class="mi">1</span> <span class="nv">it</span><span class="p">)</span> <span class="p">(</span><span class="nf">nth</span> <span class="mi">2</span> <span class="nv">it</span><span class="p">)))))))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">browse-url</span> <span class="nv">it</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Failed to generate a link from that file&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/get-git-remote-urls</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">with-temp-buffer</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">magit-git-insert</span> <span class="s">&#34;remote&#34;</span> <span class="s">&#34;-v&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">-remove</span> <span class="nf">#&#39;null</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nv">-map</span> <span class="nf">#&#39;</span><span class="p">(</span><span class="nb">lambda</span> <span class="p">(</span><span class="nv">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                       <span class="p">(</span><span class="nf">nth</span> <span class="mi">1</span> <span class="p">(</span><span class="nv">s-split</span> <span class="s">&#34;[ \t]+&#34;</span> <span class="nv">a</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">                   <span class="p">(</span><span class="nv">s-lines</span> <span class="p">(</span><span class="nf">buffer-string</span><span class="p">))))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/get-head-commit-sha</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">with-temp-buffer</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">magit-git-insert</span> <span class="s">&#34;rev-parse&#34;</span> <span class="s">&#34;HEAD&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">s-trim</span> <span class="p">(</span><span class="nf">buffer-string</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">binarin/make-gitlab-link</span> <span class="p">(</span><span class="nv">base</span> <span class="nv">project</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">commit-sha</span> <span class="p">(</span><span class="nv">binarin/get-head-commit-sha</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nv">filename-relative</span>
+</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nf">car</span> <span class="p">(</span><span class="nv">projectile-make-relative-to-root</span> <span class="p">(</span><span class="nf">list</span> <span class="p">(</span><span class="nf">buffer-file-name</span><span class="p">)))))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nv">line-number</span> <span class="p">(</span><span class="nf">string-to-number</span> <span class="p">(</span><span class="nf">format-mode-line</span> <span class="s">&#34;%l&#34;</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;https://%s/%s/blob/%s/%s#L%d&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">base</span> <span class="nv">project</span> <span class="nv">commit-sha</span> <span class="nv">filename-relative</span> <span class="nv">line-number</span><span class="p">)))</span></span></span></code></pre></div>
 
     <div class="post__tags">
         Tags:

@@ -45,27 +45,27 @@ about some details that make this possible.</p>
 task is to integrate some <code>mix</code> commands into <code>Makefile</code>. Here is
 the snippet that hooks <code>mix</code> into build process and which needs to
 be added to <a href="https://github.com/rabbitmq/rabbitmq-metronome/blob/master/Makefile">Makefile of the original metronome plugin</a>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nv">elixir_srcs</span> <span class="o">:=</span> mix.exs <span class="se">\
-</span><span class="se"></span>               <span class="k">$(</span>shell find config lib -name <span class="s2">&#34;*.ex&#34;</span> -o -name <span class="s2">&#34;*.exs&#34;</span><span class="k">)</span>
-
-<span class="nf">app</span><span class="o">::</span> <span class="k">$(</span><span class="nv">elixir_srcs</span><span class="k">)</span> <span class="n">deps</span>
-     <span class="k">$(</span>MIX<span class="k">)</span> deps.get
-     <span class="k">$(</span>MIX<span class="k">)</span> deps.compile
-     <span class="k">$(</span>MIX<span class="k">)</span> compile
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nv">elixir_srcs</span> <span class="o">:=</span> mix.exs <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>               <span class="k">$(</span>shell find config lib -name <span class="s2">&#34;*.ex&#34;</span> -o -name <span class="s2">&#34;*.exs&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">app</span><span class="o">::</span> <span class="k">$(</span><span class="nv">elixir_srcs</span><span class="k">)</span> <span class="n">deps</span>
+</span></span><span class="line"><span class="cl">     <span class="k">$(</span>MIX<span class="k">)</span> deps.get
+</span></span><span class="line"><span class="cl">     <span class="k">$(</span>MIX<span class="k">)</span> deps.compile
+</span></span><span class="line"><span class="cl">     <span class="k">$(</span>MIX<span class="k">)</span> compile
+</span></span></code></pre></div>
 <p>Running <code>mix</code> 3 times in a row is a bit expensive, so it&rsquo;s
 advisable to add some <a href="https://hexdocs.pm/mix/Mix.html#module-aliases">aliases</a> to <code>mix.exs</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="p">[</span>
-  <span class="ss">make_all</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">&#34;deps.get&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;deps.compile&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;compile&#34;</span><span class="p">,</span>
-  <span class="p">],</span>
-<span class="p">]</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elixir" data-lang="elixir"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">make_all</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;deps.get&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;deps.compile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span></span></span></code></pre></div>
 <p>Then we can replace 3 <code>mix</code> calls with a single one in our <code>Makefile</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nf">app</span><span class="o">::</span> <span class="k">$(</span><span class="nv">elixir_srcs</span><span class="k">)</span> <span class="n">deps</span>
-     <span class="k">$(</span>MIX<span class="k">)</span> make_all
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nf">app</span><span class="o">::</span> <span class="k">$(</span><span class="nv">elixir_srcs</span><span class="k">)</span> <span class="n">deps</span>
+</span></span><span class="line"><span class="cl">     <span class="k">$(</span>MIX<span class="k">)</span> make_all
+</span></span></code></pre></div>
 <p>Another thing is that we can drop <code>PROJECT_DESCRIPTION</code>,
 <code>PROJECT_MOD</code> and <code>PROJECT_ENV</code> variables from <code>Makefile</code>, as
 <code>erlang.mk</code> uses them only to generate an <code>.app</code> file, and <code>mix</code> is
@@ -74,21 +74,21 @@ already handling this task.</p>
 tell <code>mix</code> that it shouldn&rsquo;t fetch or build dependencies that are
 managed by <code>erlang.mk</code>. For <code>rabbit</code> and <code>rabbit_common</code>
 which are always the direct dependencies we add this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="p">[</span>
-  <span class="p">{</span>
-    <span class="ss">:rabbit_common</span><span class="p">,</span>
-    <span class="c1"># `deps` is erlang.mk directory with dependencies</span>
-    <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;deps/rabbit_common&#34;</span><span class="p">,</span>
-    <span class="ss">compile</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
-    <span class="ss">override</span><span class="p">:</span> <span class="n">true</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="ss">:rabbit</span><span class="p">,</span>
-    <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;deps/rabbit&#34;</span><span class="p">,</span>
-    <span class="ss">compile</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
-    <span class="ss">override</span><span class="p">:</span> <span class="n">true</span>
-  <span class="p">},</span>
-<span class="p">]</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elixir" data-lang="elixir"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">:rabbit_common</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># `deps` is erlang.mk directory with dependencies</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;deps/rabbit_common&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">compile</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">override</span><span class="p">:</span> <span class="no">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">:rabbit</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;deps/rabbit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">compile</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">override</span><span class="p">:</span> <span class="no">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span></span></span></code></pre></div>
 <p>There can be an additional trouble when we use some libraries that
 have transient dependencies on RabbitMQ sub-projects. E.g. this is
 the case with <code>amqp</code> elixir library, which depends on <code>amqp_client</code>

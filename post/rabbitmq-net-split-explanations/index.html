@@ -30,9 +30,9 @@ RabbitMQ net-split messages explanation
     <div class="post__publish-date">30 Jan 2017</div>
     <p>After experiencing a network problem RabbitMQ writes a record to
 logs that looks like this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">=INFO REPORT==== 30-Jan-2017::19:04:04 ===
-node &#39;rabbit@192.168.155.11&#39; down: connection_closed
-</code></pre></div><p>In this case the reason is <code>connection_closed</code>. But sometimes it
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">=INFO REPORT==== 30-Jan-2017::19:04:04 ===
+</span></span><span class="line"><span class="cl">node &#39;rabbit@192.168.155.11&#39; down: connection_closed
+</span></span></code></pre></div><p>In this case the reason is <code>connection_closed</code>. But sometimes it
 may not be evident what this actually means or what could have
 caused this error. Especially in some outright bizzare situations.
 Here I&rsquo;m trying to document all the reasons that I&rsquo;ve seen and how
@@ -65,13 +65,13 @@ mechanism or by somebody messing with <code>rabbitmqctl eval</code>.</p>
 only when OS TCP stack is tuned in a such way that TCP timeout is
 less than <code>net_tick_timeout</code>. On Linux this can be reproduced with
 some extreme tuning:</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">cd /proc/sys/net/ipv4
-echo 2 &gt; tcp_keepalive_intvl
-echo 1 &gt; tcp_keepalive_probes
-echo 2 &gt; tcp_keepalive_time
-echo 1 &gt; tcp_retries1
-echo 2 &gt; tcp_retries1
-</code></pre></div><h2 id="econnreset"><code>econnreset</code></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cd /proc/sys/net/ipv4
+</span></span><span class="line"><span class="cl">echo 2 &gt; tcp_keepalive_intvl
+</span></span><span class="line"><span class="cl">echo 1 &gt; tcp_keepalive_probes
+</span></span><span class="line"><span class="cl">echo 2 &gt; tcp_keepalive_time
+</span></span><span class="line"><span class="cl">echo 1 &gt; tcp_retries1
+</span></span><span class="line"><span class="cl">echo 2 &gt; tcp_retries1
+</span></span></code></pre></div><h2 id="econnreset"><code>econnreset</code></h2>
 <p>This is the most strange of all reasons which I&rsquo;ve seen only in
 production logs but can&rsquo;t reproduce myself. One very probable
 explanation is that RST packet has arrived with an exceptionally

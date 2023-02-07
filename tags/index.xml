@@ -6,11 +6,7 @@
     <description>Recent content in Tags on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Nov 2019 17:40:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://binarin.ru/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 08 Nov 2019 17:40:00 +0100</lastBuildDate><atom:link href="https://binarin.ru/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>3d-printing</title>
       <link>https://binarin.ru/tags/3d-printing/</link>
@@ -95,7 +91,7 @@
     <item>
       <title>android</title>
       <link>https://binarin.ru/tags/android/</link>
-      <pubDate>Thu, 15 Mar 2018 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/tags/android/</guid>
       <description></description>
@@ -104,7 +100,7 @@
     <item>
       <title>notes</title>
       <link>https://binarin.ru/tags/notes/</link>
-      <pubDate>Thu, 15 Mar 2018 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/tags/notes/</guid>
       <description></description>
@@ -113,7 +109,7 @@
     <item>
       <title>perl</title>
       <link>https://binarin.ru/tags/perl/</link>
-      <pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/tags/perl/</guid>
       <description></description>
@@ -122,7 +118,7 @@
     <item>
       <title>sadness</title>
       <link>https://binarin.ru/tags/sadness/</link>
-      <pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/tags/sadness/</guid>
       <description></description>
@@ -131,7 +127,7 @@
     <item>
       <title>electronics</title>
       <link>https://binarin.ru/tags/electronics/</link>
-      <pubDate>Sun, 14 May 2017 00:00:00 +0200</pubDate>
+      <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/tags/electronics/</guid>
       <description></description>
@@ -140,7 +136,7 @@
     <item>
       <title>rabbitmq</title>
       <link>https://binarin.ru/tags/rabbitmq/</link>
-      <pubDate>Wed, 19 Apr 2017 00:00:00 +0200</pubDate>
+      <pubDate>Wed, 19 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/tags/rabbitmq/</guid>
       <description></description>

@@ -6,11 +6,7 @@
     <description>Recent content on binarin.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Nov 2019 17:40:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://binarin.ru/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 08 Nov 2019 17:40:00 +0100</lastBuildDate><atom:link href="https://binarin.ru/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>3D-printed legs for a nightstand</title>
       <link>https://binarin.ru/post/3d-printed-legs-for-bed-stand/</link>
@@ -63,7 +59,7 @@ The thing is that a code is opened in your favorite editor, so you know everythi
       <pubDate>Wed, 18 Apr 2018 16:55:00 +0200</pubDate>
       
       <guid>https://binarin.ru/page/wishlist/</guid>
-      <description> Line 6 G10 wireless guitar system Prusa i3 MK3 multi-material upgrade kit Flir tg165 Miter saw like Makita LS1216L   </description>
+      <description> LDO Voron v0 kit LDO Voron v2.4 kit Festool CONTURO Festool DOMINO DF500 </description>
     </item>
     
     <item>
@@ -94,7 +90,7 @@ to your Haskell code you can completely automate this process.&lt;/p&gt;</descri
     <item>
       <title>Notes about installing Lineage OS on Nexus 6P</title>
       <link>https://binarin.ru/post/flashing-nexus-6p-checklist/</link>
-      <pubDate>Thu, 15 Mar 2018 00:00:00 +0100</pubDate>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/flashing-nexus-6p-checklist/</guid>
       <description>&lt;p&gt;Checklist for myself for the next time I&amp;rsquo;ll be flashing my Nexus 6P
@@ -105,7 +101,7 @@ important parts).&lt;/p&gt;</description>
     <item>
       <title>Perl `JSON::XS` can produce un-canonical JSON</title>
       <link>https://binarin.ru/post/perl-json-xs-canonical-sadness/</link>
-      <pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/perl-json-xs-canonical-sadness/</guid>
       <description>&lt;p&gt;Sometimes you want to produce a canonical version of a data
@@ -119,7 +115,7 @@ debugging to learn that this is a bit more complicated.&lt;/p&gt;</description>
     <item>
       <title>DIY power supply from AliExpress</title>
       <link>https://binarin.ru/post/diy-power-supply-from-aliexpress/</link>
-      <pubDate>Sun, 14 May 2017 00:00:00 +0200</pubDate>
+      <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/diy-power-supply-from-aliexpress/</guid>
       <description>&lt;p&gt;Just finished soldering and assembling a &lt;a href=&#34;https://www.aliexpress.com/item/DIY-Kit-LM317-Adjustable-Regulated-Voltage-Step-down-Power-Supply-Suite-Module-Free-Shipping/32563951591.html?spm=2114.13010608.0.0.fAKrUW&#34;&gt;DIY power supply&lt;/a&gt; purchased
@@ -129,7 +125,7 @@ from AliExpress.&lt;/p&gt;</description>
     <item>
       <title>RabbitMQ plugins in Elixir</title>
       <link>https://binarin.ru/post/rabbitmq-plugins-in-elixir/</link>
-      <pubDate>Wed, 19 Apr 2017 00:00:00 +0200</pubDate>
+      <pubDate>Wed, 19 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/rabbitmq-plugins-in-elixir/</guid>
       <description>&lt;p&gt;As RabbitMQ is gradually adopting Elixir (i.e. for &lt;a href=&#34;https://github.com/rabbitmq/rabbitmq-cli&#34;&gt;the next
@@ -143,14 +139,14 @@ in RabbitMQ. And I&amp;rsquo;m going to fill that gap.&lt;/p&gt;</description>
     <item>
       <title>RabbitMQ net-split messages explanation</title>
       <link>https://binarin.ru/post/rabbitmq-net-split-explanations/</link>
-      <pubDate>Mon, 30 Jan 2017 00:00:00 +0100</pubDate>
+      <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/post/rabbitmq-net-split-explanations/</guid>
       <description>&lt;p&gt;After experiencing a network problem RabbitMQ writes a record to
 logs that looks like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;=INFO REPORT==== 30-Jan-2017::19:04:04 ===
-node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=INFO REPORT==== 30-Jan-2017::19:04:04 ===
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -169,7 +165,7 @@ node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
       
       <guid>https://binarin.ru/recipe/almond-flour-pancakes/</guid>
       <description>Original
-          Almond flour 1 cup 100 g   Coconut flour 1/4 cup 25 g   Erythritol (or any sweetener of choice) 2-3 tbsp    Gluten-free baking powder 1 tsp    large Egg 5    Unsweetened almond milk (or any milk of choice) 1/3 cup    Avocado oil (or any neutral tasting oil) 1/4 cup    Vanilla extract (optional, but recommended) 1 1/2 tsp    Sea salt (optional, but recommended) 1/4 tsp     </description>
+Almond flour 1 cup 100 g Coconut flour 1/4 cup 25 g Erythritol (or any sweetener of choice) 2-3 tbsp Gluten-free baking powder 1 tsp large Egg 5 Unsweetened almond milk (or any milk of choice) 1/3 cup Avocado oil (or any neutral tasting oil) 1/4 cup Vanilla extract (optional, but recommended) 1 1/2 tsp Sea salt (optional, but recommended) 1/4 tsp </description>
     </item>
     
     <item>
@@ -179,7 +175,7 @@ node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
       
       <guid>https://binarin.ru/recipe/cauliflower-fried-rice/</guid>
       <description>Original
-         Olive oil 2 tbsp   Onion (Diced) ½   Garlic (Minced) 3 Cloves   Minced Ginger 1 tsp   Riced Cauliflower 1 ½ cups   Eggs, Scrambled 3   Soy Sauce 2 dashes   Sesame Oil 1 tsp   Diced Bell Pepper ⅛   Cayenne Pepper 1 tsp   Black Pepper 1 tsp   Sea Salt ¼ tsp   All Purpose Seasoning 1 tbsp     Scramble Eggs with butter in a separate frying pan, and set aside.</description>
+Olive oil 2 tbsp Onion (Diced) ½ Garlic (Minced) 3 Cloves Minced Ginger 1 tsp Riced Cauliflower 1 ½ cups Eggs, Scrambled 3 Soy Sauce 2 dashes Sesame Oil 1 tsp Diced Bell Pepper ⅛ Cayenne Pepper 1 tsp Black Pepper 1 tsp Sea Salt ¼ tsp All Purpose Seasoning 1 tbsp Scramble Eggs with butter in a separate frying pan, and set aside. The eggs should be slightly undercooked.</description>
     </item>
     
     <item>
@@ -189,7 +185,7 @@ node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
       
       <guid>https://binarin.ru/recipe/flourless-avocado-brownies/</guid>
       <description>Original
-         2 large eggs    1 medium, ripe, hass avocado (3/4- 1 cup)    3 tbsp melted ghee (butter or coconut oil)    2-4 tbsp unsweetened almond butter (or sunflower seed butter for nut free)    1/2 tsp baking soda    1/4 tsp salt (if your nut butter is salted omit or reduce)    1/3 cup Swerve (erythritol) or preferred granulated sweetener (coconut palm, maple sugar etc)    1/3 cup cacao powder    1/2 tsp vanilla extract      Pre-heat oven to 175℃.</description>
+2 large eggs 1 medium, ripe, hass avocado (3/4- 1 cup) 3 tbsp melted ghee (butter or coconut oil) 2-4 tbsp unsweetened almond butter (or sunflower seed butter for nut free) 1/2 tsp baking soda 1/4 tsp salt (if your nut butter is salted omit or reduce) 1/3 cup Swerve (erythritol) or preferred granulated sweetener (coconut palm, maple sugar etc) 1/3 cup cacao powder 1/2 tsp vanilla extract Pre-heat oven to 175℃.</description>
     </item>
     
     <item>
@@ -199,7 +195,7 @@ node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
       
       <guid>https://binarin.ru/recipe/keto-stuffed-meatloaf/</guid>
       <description>Original
-   ground beef 500 grams     salt 1 teaspoon   pepper ½ teaspoon   garlic powder ½ teaspoon   cumin ½ teaspoon   cheddar cheese 6 slices   chopped onions ¼ cup   chopped green onions ¼ cup   spinach ½ cup   mushrooms ¼ cup     Mix the meat with the salt, pepper, garlic, and cumin.</description>
+ground beef 500 grams salt 1 teaspoon pepper ½ teaspoon garlic powder ½ teaspoon cumin ½ teaspoon cheddar cheese 6 slices chopped onions ¼ cup chopped green onions ¼ cup spinach ½ cup mushrooms ¼ cup Mix the meat with the salt, pepper, garlic, and cumin. In a small greased bread (or meatloaf) pan, line the bottom and sides with the minced beef, leaving a hole for your stuffing. Layer the cheese on the bottom of the meatloaf.</description>
     </item>
     
     <item>
@@ -208,7 +204,7 @@ node &amp;#39;rabbit@192.168.155.11&amp;#39; down: connection_closed
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://binarin.ru/page/kobo-aura-one-notes/</guid>
-      <description>Activating and using telnet  Get zip here Put KoboRoot.tgz into .kobo folder Install update from KSM Enable usbnet, do smth like sudo ifconfig enp0s20u1u1 192.168.2.100/29 up telnet 192.168.2.101 and use root for login  Known problems  Dictionary lookup not working - use sdcv from that issue Evernote plugin crashing - copy .so-file per instruction I needed to delete .adds/koreader folder before upgrade, despite being said otherwise in readme. It started to crash while turning wi-fi on/off.</description>
+      <description>Activating and using telnet Get zip here Put KoboRoot.tgz into .kobo folder Install update from KSM Enable usbnet, do smth like sudo ifconfig enp0s20u1u1 192.168.2.100/29 up telnet 192.168.2.101 and use root for login Known problems Dictionary lookup not working - use sdcv from that issue Evernote plugin crashing - copy .so-file per instruction I needed to delete .adds/koreader folder before upgrade, despite being said otherwise in readme. It started to crash while turning wi-fi on/off.</description>
     </item>
     
   </channel>

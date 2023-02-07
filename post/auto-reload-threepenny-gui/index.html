@@ -44,16 +44,16 @@ time we&rsquo;ll change the source code. Here is an example of a command
 that is suitable for my example:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">ghcid -c <span class="s1">&#39;cabal new-repl&#39;</span> <span class="se">\
-</span><span class="se"></span>      --reload<span class="o">=</span>./Main.hs <span class="se">\
-</span><span class="se"></span>      -T Main.main <span class="se">\
-</span><span class="se"></span>      --restart<span class="o">=</span>./threepenny-reloading-example.cabal</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ghcid -c <span class="s1">&#39;cabal new-repl&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --reload<span class="o">=</span>./Main.hs <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -T Main.main <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --restart<span class="o">=</span>./threepenny-reloading-example.cabal</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ol>
@@ -74,17 +74,17 @@ flags changed</li>
 <p>That&rsquo;s better, yet we still need to refresh our browser
 manually. With small changes to Haskell code we can automate this
 part also. Our <code>main</code> usually looks like this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
-  <span class="n">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
-  <span class="n">startGUI</span> <span class="n">defaultConfig</span> <span class="n">setup</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-haskell" data-lang="haskell"><span class="line"><span class="cl"><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">  <span class="n">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
+</span></span><span class="line"><span class="cl">  <span class="n">startGUI</span> <span class="n">defaultConfig</span> <span class="n">setup</span></span></span></code></pre></div>
 <p>To achieve automatic reloading we can introduce alternative <code>main</code>
 which will be only used by <code>ghcid</code> (with the <code>-T</code> switch):</p>
-<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="nf">mainDevel</span> <span class="ow">=</span> <span class="kr">do</span>
-  <span class="n">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
-  <span class="n">forkIO</span> <span class="o">$</span> <span class="kr">do</span>
-      <span class="n">threadDelay</span> <span class="mi">500000</span> <span class="c1">-- small delay so startGUI can start listening</span>
-      <span class="n">refreshBrowserPage</span>
-  <span class="n">startGUI</span> <span class="n">defaultConfig</span> <span class="n">setup</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-haskell" data-lang="haskell"><span class="line"><span class="cl"><span class="nf">mainDevel</span> <span class="ow">=</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">  <span class="n">appInit</span> <span class="c1">-- can take indeterminate amount of time</span>
+</span></span><span class="line"><span class="cl">  <span class="n">forkIO</span> <span class="o">$</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">      <span class="n">threadDelay</span> <span class="mi">500000</span> <span class="c1">-- small delay so startGUI can start listening</span>
+</span></span><span class="line"><span class="cl">      <span class="n">refreshBrowserPage</span>
+</span></span><span class="line"><span class="cl">  <span class="n">startGUI</span> <span class="n">defaultConfig</span> <span class="n">setup</span></span></span></code></pre></div>
 <p>Now you need to come up with <code>refreshBrowserPage</code> for the system
 where you do development. Below you can see the dumbest
 implementation which will work only for Firefox on Linux, and only
@@ -97,25 +97,25 @@ connection to a server, which usually results in <code>Problem loading page</cod
 as fast as page reload). The code just searches for all windows
 which has <code>Problem loading page</code> in their title and sends reload
 hotkey (<code>Ctrl-R</code>) to each of them.</p>
-<div class="highlight"><pre class="chroma"><code class="language-haskell" data-lang="haskell"><span class="kr">import</span> <span class="nn">Control.Monad</span> <span class="p">(</span><span class="nf">forM_</span><span class="p">)</span>
-<span class="kr">import</span> <span class="nn">Control.Monad.Catch</span>
-<span class="kr">import</span> <span class="nn">System.Process</span> <span class="p">(</span><span class="nf">readProcess</span><span class="p">,</span> <span class="nf">callProcess</span><span class="p">)</span>
-<span class="kr">import</span> <span class="nn">Text.Read</span> <span class="p">(</span><span class="nf">readMaybe</span><span class="p">)</span>
-
-<span class="nf">refreshBrowserPage</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
-<span class="nf">refreshBrowserPage</span> <span class="ow">=</span> <span class="kr">do</span>
-    <span class="n">maybeWindows</span> <span class="ow">::</span> <span class="kt">Either</span> <span class="kt">SomeException</span> <span class="kt">String</span> <span class="ow">&lt;-</span> <span class="n">try</span>
-      <span class="p">(</span><span class="n">readProcess</span> <span class="s">&#34;xdotool&#34;</span>
-        <span class="p">[</span><span class="s">&#34;search&#34;</span><span class="p">,</span> <span class="s">&#34;--all&#34;</span><span class="p">,</span> <span class="s">&#34;--name&#34;</span><span class="p">,</span> <span class="s">&#34;Problem loading&#34;</span><span class="p">]</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-    <span class="kr">case</span> <span class="n">maybeWindows</span> <span class="kr">of</span>
-      <span class="kt">Left</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">return</span> <span class="nb">()</span>
-      <span class="kt">Right</span> <span class="n">idStr</span> <span class="ow">-&gt;</span> <span class="n">forM_</span> <span class="p">(</span><span class="n">lines</span> <span class="n">idStr</span><span class="p">)</span> <span class="o">$</span> <span class="nf">\</span><span class="n">windowId</span> <span class="ow">-&gt;</span>
-        <span class="kr">case</span> <span class="n">readMaybe</span> <span class="n">windowId</span> <span class="kr">of</span>
-          <span class="kt">Nothing</span> <span class="ow">-&gt;</span> <span class="n">return</span> <span class="nb">()</span>
-          <span class="kt">Just</span> <span class="p">(</span><span class="n">n</span> <span class="ow">::</span> <span class="kt">Integer</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kr">do</span>
-              <span class="n">putStrLn</span> <span class="o">$</span> <span class="n">show</span> <span class="n">n</span>
-              <span class="n">callProcess</span> <span class="s">&#34;xdotool&#34;</span> <span class="p">[</span><span class="s">&#34;key&#34;</span><span class="p">,</span> <span class="s">&#34;--window&#34;</span><span class="p">,</span> <span class="n">show</span> <span class="n">n</span><span class="p">,</span> <span class="s">&#34;CTRL+R&#34;</span><span class="p">]</span>
-              <span class="n">return</span> <span class="nb">()</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-haskell" data-lang="haskell"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nn">Control.Monad</span> <span class="p">(</span><span class="nf">forM_</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nn">Control.Monad.Catch</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nn">System.Process</span> <span class="p">(</span><span class="nf">readProcess</span><span class="p">,</span> <span class="nf">callProcess</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nn">Text.Read</span> <span class="p">(</span><span class="nf">readMaybe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">refreshBrowserPage</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
+</span></span><span class="line"><span class="cl"><span class="nf">refreshBrowserPage</span> <span class="ow">=</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">    <span class="n">maybeWindows</span> <span class="ow">::</span> <span class="kt">Either</span> <span class="kt">SomeException</span> <span class="kt">String</span> <span class="ow">&lt;-</span> <span class="n">try</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="n">readProcess</span> <span class="s">&#34;xdotool&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="s">&#34;search&#34;</span><span class="p">,</span> <span class="s">&#34;--all&#34;</span><span class="p">,</span> <span class="s">&#34;--name&#34;</span><span class="p">,</span> <span class="s">&#34;Problem loading&#34;</span><span class="p">]</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">case</span> <span class="n">maybeWindows</span> <span class="kr">of</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">Left</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">return</span> <span class="nb">()</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">Right</span> <span class="n">idStr</span> <span class="ow">-&gt;</span> <span class="n">forM_</span> <span class="p">(</span><span class="n">lines</span> <span class="n">idStr</span><span class="p">)</span> <span class="o">$</span> <span class="nf">\</span><span class="n">windowId</span> <span class="ow">-&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">case</span> <span class="n">readMaybe</span> <span class="n">windowId</span> <span class="kr">of</span>
+</span></span><span class="line"><span class="cl">          <span class="kt">Nothing</span> <span class="ow">-&gt;</span> <span class="n">return</span> <span class="nb">()</span>
+</span></span><span class="line"><span class="cl">          <span class="kt">Just</span> <span class="p">(</span><span class="n">n</span> <span class="ow">::</span> <span class="kt">Integer</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kr">do</span>
+</span></span><span class="line"><span class="cl">              <span class="n">putStrLn</span> <span class="o">$</span> <span class="n">show</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">              <span class="n">callProcess</span> <span class="s">&#34;xdotool&#34;</span> <span class="p">[</span><span class="s">&#34;key&#34;</span><span class="p">,</span> <span class="s">&#34;--window&#34;</span><span class="p">,</span> <span class="n">show</span> <span class="n">n</span><span class="p">,</span> <span class="s">&#34;CTRL+R&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">              <span class="n">return</span> <span class="nb">()</span></span></span></code></pre></div>
 <p>And this is all that&rsquo;s needed to see your changes in browser
 almost immediately after you save an edited file.</p>
     <div class="post__tags">
